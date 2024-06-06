@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
-            const offset = 30; // Offset for sticky header
+            const offset = 120; // Offset for sticky header
 
             const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
             const offsetPosition = elementPosition - offset;
