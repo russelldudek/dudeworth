@@ -21,6 +21,12 @@ header img {
     height: 50px;
 }
 
+.logo {
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px;
+}
+
 nav a {
     margin: 0 15px;
     text-decoration: none;
@@ -29,7 +35,10 @@ nav a {
 
 #hamburger-menu {
     display: none;
-    cursor: pointer;
+        cursor: pointer;
+        font-size: 24px; /* Adjust the font size as needed */
+        padding: 10px;   /* Adjust the padding as needed */
+        margin: 10px;    /* Adjust the margin as needed */
 }
 
 #main-nav {
