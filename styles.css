@@ -22,7 +22,7 @@ header img {
 }
 
 .logo {
-    width: 150px; /* Adjust the width as needed */
+    width: 250px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     margin: 10px;
 }
@@ -36,7 +36,7 @@ nav a {
 #hamburger-menu {
     display: none;
         cursor: pointer;
-        font-size: 24px; /* Adjust the font size as needed */
+        font-size: 48px; /* Adjust the font size as needed */
         padding: 10px;   /* Adjust the padding as needed */
         margin: 10px;    /* Adjust the margin as needed */
 }
