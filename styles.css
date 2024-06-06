@@ -9,7 +9,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px; /* Reduced from 20px */
     background-color: #f0f0f0;
     position: sticky;
     top: 0;
@@ -22,10 +22,9 @@ header img {
 }
 
 .logo {
-    width: 150px; /* Adjust the width as needed */
+    width: 120px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
-    margin: 10px;
-    /* filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5)); /* Add drop shadow */
+    margin: 5px; /* Reduced from 10px */
 }
 
 nav a {
@@ -64,7 +63,7 @@ nav a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 80vh; /* Changed from height: 100vh */
     background: linear-gradient(to right, #0066cc, #00cc66);
     color: #fff;
     text-align: center;
