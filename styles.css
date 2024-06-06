@@ -63,7 +63,7 @@ nav a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 80vh; /* Ensure it takes most of the viewport height */
+    min-height: 100vh; /* Ensure it takes most of the viewport height */
     background: linear-gradient(to right, #0066cc, #00cc66);
     color: #fff;
     text-align: center;
