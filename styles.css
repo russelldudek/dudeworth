@@ -264,6 +264,17 @@ footer p {
     margin-bottom: 20px;
 }
 
+#collapse-faq {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
 .form-row {
     display: flex;
     justify-content: space-between;

@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dynamicKeyword = document.getElementById("dynamic-keyword");
     const dynamicTheme = document.getElementById("dynamic-theme");
     const dynamicServiceTheme = document.getElementById("dynamic-service-theme");
+    const dynamicFaqTheme = document.getElementById("dynamic-faq-theme");
 
     setInterval(() => {
         dynamicKeyword.textContent = heroKeywords[heroIndex].text;
@@ -44,7 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
         serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
     }, 2000); // Change every 2 seconds
 
+    setInterval(() => {
+        dynamicFaqTheme.textContent = roadmapThemes[roadmapIndex].text;
+        dynamicFaqTheme.style.color = roadmapThemes[roadmapIndex].color;
+        roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
+    }, 2000); // Change every 2 seconds
+
     const collapsibles = document.querySelectorAll(".collapsible");
+    const contents = document.querySelectorAll(".content");
     collapsibles.forEach(collapsible => {
         collapsible.addEventListener("click", () => {
             collapsible.classList.toggle("active");
@@ -95,9 +103,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const submitButton = contactForm.querySelector("button[type='submit']");
         submitButton.textContent = "Thank You";
     });
+
+    // FAQ toggle functionality
+    const toggleFaqButton = document.getElementById("toggle-faq");
+    const faqCollapsibles = document.querySelectorAll("#faq .collapsible-card");
+
+    // Initially hide all FAQ cards
+    faqCollapsibles.forEach(card => {
+        card.style.display = "none";
+    });
+
+    toggleFaqButton.addEventListener("click", function () {
+        const isAnyVisible = Array.from(faqCollapsibles).some(card => card.style.display === "block");
+        faqCollapsibles.forEach(card => {
+            card.style.display = isAnyVisible ? "none" : "block";
+        });
+        this.textContent = isAnyVisible ? "Expand All" : "Collapse All";
+    });
 });
 
 function toggleMenu() {
     const nav = document.getElementById('main-nav');
     nav.classList.toggle('show');
 }
+
