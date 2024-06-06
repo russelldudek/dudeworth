@@ -74,7 +74,7 @@ nav a {
 .hero-content {
     position: relative;
     padding: 20px; /* Adjust padding as needed */
-    margin-top: -20px; /* Move the hero content up by 50px */
+    margin-top: 0px; /* Move the hero content up by 0px */
 }
 
 .rethink-container {
