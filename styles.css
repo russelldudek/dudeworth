@@ -63,12 +63,25 @@ nav a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 80vh; /* Changed from height: 100vh */
+    min-height: 80vh; /* Ensure it takes most of the viewport height */
     background: linear-gradient(to right, #0066cc, #00cc66);
     color: #fff;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden; /* Ensure the pseudo-element is contained */
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5in; /* Extend the background by 0.5 inch */
+    background: linear-gradient(to right, #0066cc, #00cc66); /* Same gradient as #hero */
+    z-index: -1; /* Ensure it is behind the content */
 }
 
 .hero-content {
