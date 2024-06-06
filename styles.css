@@ -25,7 +25,7 @@ header img {
     width: 250px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
     margin: 10px;
-    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5)); /* Add drop shadow */
+    /* filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5)); /* Add drop shadow */
 }
 
 nav a {
