@@ -168,3 +168,4 @@ function setupDynamicSentences() {
         serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
     }, 2000);
 }
+
