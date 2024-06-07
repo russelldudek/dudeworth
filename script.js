@@ -1,4 +1,4 @@
-documdocument.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', async () => {
     await loadContent();
     setupToggleButtons();
     setupSmoothScroll();
@@ -44,7 +44,12 @@ function updateAboutSection(data) {
             <h3 class="collapsible" style="color: ${section.color};">${section.title}</h3>
             <div class="content hidden">${section.content}</div>
         </div>
-    `).join('');
+    `).join('') + `
+        <div class="call-to-action">
+            <h2>${data.callToAction.title}</h2>
+            <p>${data.callToAction.body}</p>
+        </div>
+    `;
 }
 
 function updateServicesSection(data) {
@@ -164,4 +169,3 @@ function setupDynamicSentences() {
         serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
     }, 2000);
 }
-
