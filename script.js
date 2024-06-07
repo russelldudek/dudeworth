@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadContent();
     setupToggleButtons();
     setupSmoothScroll();
+    setupDynamicSentences();
 });
 
 async function loadContent() {
@@ -104,4 +105,15 @@ function setupSmoothScroll() {
             });
         });
     });
+}
+
+function setupDynamicSentences() {
+    const dynamicKeywords = ['Innovation', 'Growth', 'Resiliency'];
+    const dynamicKeywordElement = document.getElementById('dynamic-keyword');
+    let currentIndex = 0;
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % dynamicKeywords.length;
+        dynamicKeywordElement.textContent = dynamicKeywords[currentIndex];
+    }, 3000);
 }
