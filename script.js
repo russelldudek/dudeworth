@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupToggleButtons();
     setupSmoothScroll();
     setupDynamicSentences();
+    setupButtonHoverEffect();
 });
 
 async function loadContent() {
@@ -23,7 +24,7 @@ async function loadContent() {
 
         const heroData = await fetchJSON('hero.json');
         console.log("Hero data loaded:", heroData);
-        setupDynamicKeywords(heroData); // Call this function correctly here
+        setupDynamicKeywords(heroData);
 
         const contactData = await fetchJSON('contact.json');
         updateContactSection(contactData);
@@ -193,3 +194,15 @@ function setupDynamicSentences() {
     }, 2000);
 }
 
+function setupButtonHoverEffect() {
+    const neonColors = [
+        'red', 'orange', 'yellow', 'lime', 'green', 'aqua', 'cyan', 'blue', 'indigo', 'deeppink', 'magenta'
+    ];
+
+    document.querySelectorAll('.cta-button').forEach(button => {
+        button.addEventListener('mouseover', () => {
+            const randomColor = neonColors[Math.floor(Math.random() * neonColors.length)];
+            button.style.setProperty('--neon-color', randomColor);
+        });
+    });
+}
