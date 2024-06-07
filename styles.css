@@ -255,6 +255,33 @@ footer {
     font-size: 14px;
 }
 
+#terms {
+    background: #333;
+    color: #fff;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    border-top: 1px solid #fff;
+    transition: bottom 0.3s ease;
+    text-align: left;
+}
+
+#terms h2 {
+    margin-top: 0;
+}
+
+#close-terms {
+    background: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    float: right;
+}
+
 .section-container {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 40px;
@@ -264,23 +291,5 @@ footer {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-}
-
-#terms {
-    position: absolute;
-    bottom: -200px; /* Hide it below the footer */
-    left: 0;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 15px 15px 0 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 900px;
-    margin: auto;
-    transition: bottom 0.5s ease;
-}
-
-#terms.open {
-    bottom: 40px; /* Show it above the footer */
 }
 

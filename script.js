@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupSmoothScroll();
     setupDynamicSentences();
     setupButtonHoverEffect();
-    setupTermsPeek();
+    setupTermsToggle();
 });
 
 async function loadContent() {
@@ -227,13 +227,18 @@ function setupButtonHoverEffect() {
     });
 }
 
-function setupTermsPeek() {
+function setupTermsToggle() {
     const termsLink = document.querySelector('a[href="#terms"]');
     const termsSection = document.getElementById('terms');
+    const closeTermsButton = document.getElementById('close-terms');
 
-    termsLink.addEventListener('click', (e) => {
+    termsLink.addEventListener('click', function (e) {
         e.preventDefault();
-        termsSection.classList.toggle('open');
+        termsSection.style.bottom = '0';
+    });
+
+    closeTermsButton.addEventListener('click', function () {
+        termsSection.style.bottom = '-100%';
     });
 }
 
