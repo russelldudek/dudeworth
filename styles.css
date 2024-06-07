@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
+    background: linear-gradient(to right, #0066cc, #00cc66);
 }
 
 header {
@@ -60,7 +61,6 @@ nav a {
     align-items: center;
     flex-direction: column;
     min-height: 100vh;
-    background: linear-gradient(to right, #0066cc, #00cc66);
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -99,6 +99,7 @@ nav a {
     background: linear-gradient(to right, #0066cc, #00cc66);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content h2 {
@@ -238,5 +239,13 @@ footer {
     border-top: 1px solid #fff;
     padding-top: 10px;
     font-size: 14px;
+}
+
+.section-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
