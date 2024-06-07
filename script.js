@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupSmoothScroll();
     setupDynamicSentences();
     setupButtonHoverEffect();
+    setupTermsPeek();
 });
 
 async function loadContent() {
@@ -223,6 +224,16 @@ function setupButtonHoverEffect() {
             button.style.setProperty('--neon-color', randomColor);
             button.style.setProperty('--complementary-color', complementaryColors[randomColor]);
         });
+    });
+}
+
+function setupTermsPeek() {
+    const termsLink = document.querySelector('a[href="#terms"]');
+    const termsSection = document.getElementById('terms');
+
+    termsLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        termsSection.classList.toggle('open');
     });
 }
 

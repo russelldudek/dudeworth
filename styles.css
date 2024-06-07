@@ -203,6 +203,7 @@ footer {
     color: #fff;
     padding: 40px 0;
     text-align: center;
+    position: relative;
 }
 
 .footer-content {
@@ -263,5 +264,23 @@ footer {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#terms {
+    position: absolute;
+    bottom: -200px; /* Hide it below the footer */
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: auto;
+    transition: bottom 0.5s ease;
+}
+
+#terms.open {
+    bottom: 40px; /* Show it above the footer */
 }
 
