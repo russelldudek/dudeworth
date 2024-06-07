@@ -1,0 +1,36 @@
+{
+    "title": "Our Services",
+    "description": "Discover the perfect AI Automation fit by diving into our service tiers to find the ideal solution for your business.",
+    "tiers": [
+        {
+            "title": "Basic Automation",
+            "color": "#FF073A",
+            "content": "Ideal for small businesses looking to automate simple tasks.",
+            "items": [
+                "Task Automation",
+                "Basic Data Analysis",
+                "Customer Support Bots"
+            ]
+        },
+        {
+            "title": "Advanced Automation",
+            "color": "#FF7F00",
+            "content": "Perfect for medium-sized businesses needing comprehensive automation.",
+            "items": [
+                "Process Automation",
+                "Advanced Data Analysis",
+                "Personalized Customer Support"
+            ]
+        },
+        {
+            "title": "Enterprise Automation",
+            "color": "#00FF00",
+            "content": "Designed for large enterprises aiming for full-scale automation.",
+            "items": [
+                "End-to-End Process Automation",
+                "Predictive Analytics",
+                "Advanced Customer Interaction"
+            ]
+        }
+    ]
+}

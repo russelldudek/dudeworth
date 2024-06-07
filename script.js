@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
     const heroKeywords = [
-        { text: "Business", color: "#FF073A" }, // Neon Red
-        { text: "Logistics", color: "#FF7F00" }, // Neon Orange
-        { text: "Education", color: "#FFFF00" }, // Neon Yellow
-        { text: "Healthcare", color: "#BFFF00" }, // Neon Lime
-        { text: "Finance", color: "#00FF00" }, // Neon Green
-        { text: "Retail", color: "#00FFFF" }, // Neon Cyan
-        { text: "Manufacturing", color: "#7FFFD4" }, // Neon Aqua
-        { text: "Energy", color: "#007FFF" }, // Neon Blue
-        { text: "Transportation", color: "#8A2BE2" }, // Neon Violet
-        { text: "Agriculture", color: "#FF1493" }, // Neon Pink
-        { text: "Safety", color: "#FF00FF" } // Neon Magenta
+        { text: "Business", color: "#FF073A" },
+        { text: "Logistics", color: "#FF7F00" },
+        { text: "Education", color: "#FFFF00" },
+        { text: "Healthcare", color: "#BFFF00" },
+        { text: "Finance", color: "#00FF00" },
+        { text: "Retail", color: "#00FFFF" },
+        { text: "Manufacturing", color: "#007FFF" },
+        { text: "Energy", color: "#8A2BE2" },
+        { text: "Transportation", color: "#FF1493" },
+        { text: "Agriculture", color: "#FF00FF" },
+        { text: "Safety", color: "#FF073A" }
     ];
 
     const roadmapThemes = [
-        { text: "Innovation", color: "#FF7F00" }, // Neon Orange
-        { text: "Growth", color: "#00FFFF" }, // Neon Cyan
-        { text: "Resilience", color: "#FF1493" } // Neon Pink
+        { text: "Innovation", color: "#FF7F00" },
+        { text: "Growth", color: "#00FFFF" },
+        { text: "Resilience", color: "#FF1493" }
     ];
 
     let heroIndex = 0;
@@ -25,34 +25,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const dynamicKeyword = document.getElementById("dynamic-keyword");
     const dynamicTheme = document.getElementById("dynamic-theme");
     const dynamicServiceTheme = document.getElementById("dynamic-service-theme");
-    const dynamicFaqTheme = document.getElementById("dynamic-faq-theme");
 
     setInterval(() => {
         dynamicKeyword.textContent = heroKeywords[heroIndex].text;
         dynamicKeyword.style.color = heroKeywords[heroIndex].color;
         heroIndex = (heroIndex + 1) % heroKeywords.length;
-    }, 2000); // Change every 2 seconds
+    }, 2000);
 
     setInterval(() => {
         dynamicTheme.textContent = roadmapThemes[roadmapIndex].text;
         dynamicTheme.style.color = roadmapThemes[roadmapIndex].color;
         roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
-    }, 2000); // Change every 2 seconds
+    }, 2000);
 
     setInterval(() => {
         dynamicServiceTheme.textContent = roadmapThemes[serviceThemeIndex].text;
         dynamicServiceTheme.style.color = roadmapThemes[serviceThemeIndex].color;
         serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
-    }, 2000); // Change every 2 seconds
-
-    setInterval(() => {
-        dynamicFaqTheme.textContent = roadmapThemes[roadmapIndex].text;
-        dynamicFaqTheme.style.color = roadmapThemes[roadmapIndex].color;
-        roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
-    }, 2000); // Change every 2 seconds
+    }, 2000);
 
     const collapsibles = document.querySelectorAll(".collapsible");
-    const contents = document.querySelectorAll(".content");
     collapsibles.forEach(collapsible => {
         collapsible.addEventListener("click", () => {
             collapsible.classList.toggle("active");
@@ -78,14 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Smooth scrolling for links
     document.querySelectorAll('.scroll-to').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
 
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
-            const offset = 120; // Offset for sticky header
+            const offset = 30;
 
             const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
             const offsetPosition = elementPosition - offset;
@@ -104,22 +95,166 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.textContent = "Thank You";
     });
 
-    // FAQ toggle functionality
-    const toggleFaqButton = document.getElementById("toggle-faq");
-    const faqCollapsibles = document.querySelectorAll("#faq .collapsible-card");
+    // Fetch and load About section
+    fetch('about.json')
+        .then(response => response.json())
+        .then(data => {
+            const aboutSection = document.getElementById("about");
+            aboutSection.innerHTML = `
+                <h2>${data.title}</h2>
+                <p>${data.description}</p>
+                <div class="collapsible-card">
+                    <h3 class="collapsible" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${data.missionHeading}</h3>
+                    <div class="content">
+                        <p>${data.missionDescription}</p>
+                    </div>
+                </div>
+                <div class="collapsible-card">
+                    <h3 class="collapsible" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${data.visionHeading}</h3>
+                    <div class="content">
+                        <p>${data.visionDescription}</p>
+                    </div>
+                </div>
+                <div class="collapsible-card">
+                    <h3 class="collapsible" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${data.callToActionHeading}</h3>
+                    <div class="content">
+                        <p>${data.callToActionDescription}</p>
+                    </div>
+                </div>
+            `;
 
-    // Initially hide all FAQ cards
-    faqCollapsibles.forEach(card => {
-        card.style.display = "none";
-    });
-
-    toggleFaqButton.addEventListener("click", function () {
-        const isAnyVisible = Array.from(faqCollapsibles).some(card => card.style.display === "block");
-        faqCollapsibles.forEach(card => {
-            card.style.display = isAnyVisible ? "none" : "block";
+            const collapsibles = document.querySelectorAll(".collapsible");
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener("click", () => {
+                    collapsible.classList.toggle("active");
+                    const content = collapsible.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            });
         });
-        this.textContent = isAnyVisible ? "Expand All" : "Collapse All";
-    });
+
+    // Fetch and load Services section
+    fetch('services.json')
+        .then(response => response.json())
+        .then(data => {
+            const servicesSection = document.getElementById("services");
+            servicesSection.innerHTML = `
+                <h2>${data.title}</h2>
+                <p>${data.description}</p>
+            `;
+
+            data.tiers.forEach((tier, index) => {
+                const collapsibleCard = document.createElement('div');
+                collapsibleCard.classList.add('collapsible-card');
+                collapsibleCard.innerHTML = `
+                    <h3 class="collapsible" style="color: ${tier.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${tier.title}</h3>
+                    <div class="content">
+                        <p>${tier.content}</p>
+                        <ul>${tier.items.map(item => `<li>${item}</li>`).join('')}</ul>
+                    </div>
+                `;
+                servicesSection.appendChild(collapsibleCard);
+            });
+
+            const collapsibles = document.querySelectorAll(".collapsible");
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener("click", () => {
+                    collapsible.classList.toggle("active");
+                    const content = collapsible.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            });
+        });
+
+    // Fetch and load Roadmap section
+    fetch('roadmap.json')
+        .then(response => response.json())
+        .then(data => {
+            const roadmapSection = document.getElementById("introduction");
+            roadmapSection.innerHTML = `
+                <h2>${data.title}</h2>
+                <p>${data.description}</p>
+            `;
+
+            data.steps.forEach((step, index) => {
+                const collapsibleCard = document.createElement('div');
+                collapsibleCard.classList.add('collapsible-card');
+                collapsibleCard.innerHTML = `
+                    <h3 class="collapsible" style="color: ${step.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${index + 1}. ${step.title}</h3>
+                    <div class="content">
+                        <p>${step.content}</p>
+                    </div>
+                `;
+                roadmapSection.appendChild(collapsibleCard);
+            });
+
+            const collapsibles = document.querySelectorAll(".collapsible");
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener("click", () => {
+                    collapsible.classList.toggle("active");
+                    const content = collapsible.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            });
+        });
+
+    // Fetch and load FAQ section
+    fetch('faq.json')
+        .then(response => response.json())
+        .then(data => {
+            const faqSection = document.getElementById("faq");
+            faqSection.innerHTML = `
+                <h2>${data.title}</h2>
+                <p>${data.description}</p>
+                <button id="collapse-faq" class="cta-button">Collapse All</button>
+            `;
+
+            data.questions.forEach((question, index) => {
+                const collapsibleCard = document.createElement('div');
+                collapsibleCard.classList.add('collapsible-card');
+                collapsibleCard.innerHTML = `
+                    <h3 class="collapsible" style="color: ${question.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${index + 1}. ${question.title}</h3>
+                    <div class="content">
+                        <p>${question.content}</p>
+                    </div>
+                `;
+                faqSection.appendChild(collapsibleCard);
+            });
+
+            const collapsibles = document.querySelectorAll(".collapsible");
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener("click", () => {
+                    collapsible.classList.toggle("active");
+                    const content = collapsible.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            });
+
+            document.getElementById("collapse-faq").addEventListener("click", () => {
+                collapsibles.forEach(collapsible => {
+                    const content = collapsible.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    }
+                });
+            });
+        });
 });
 
 function toggleMenu() {
