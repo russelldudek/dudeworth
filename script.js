@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    console.log("DOM fully loaded and parsed");
     await loadContent();
     setupToggleButtons();
     setupSmoothScroll();
@@ -7,6 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function loadContent() {
     try {
+        console.log("Fetching content...");
         const aboutData = await fetchJSON('about.json');
         updateAboutSection(aboutData);
 
@@ -20,24 +22,30 @@ async function loadContent() {
         updateFaqSection(faqData);
 
         const heroData = await fetchJSON('hero.json');
+        console.log("Hero data loaded:", heroData);
         setupDynamicKeywords(heroData); // Call this function correctly here
 
         const contactData = await fetchJSON('contact.json');
         updateContactSection(contactData);
+        console.log("All content loaded successfully.");
     } catch (error) {
         console.error('Error loading content:', error);
     }
 }
 
 async function fetchJSON(url) {
+    console.log(`Fetching JSON data from ${url}...`);
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`Failed to fetch ${url}`);
     }
-    return response.json();
+    const data = await response.json();
+    console.log(`Data fetched from ${url}:`, data);
+    return data;
 }
 
 function updateAboutSection(data) {
+    console.log("Updating About section with data:", data);
     const aboutContent = document.getElementById('about-content');
     aboutContent.innerHTML = data.introduction + data.sections.map(section => `
         <div class="collapsible-card">
@@ -53,6 +61,7 @@ function updateAboutSection(data) {
 }
 
 function updateServicesSection(data) {
+    console.log("Updating Services section with data:", data);
     const servicesContent = document.getElementById('services-content');
     servicesContent.innerHTML = data.introduction + data.tiers.map(tier => `
         <div class="collapsible-card">
@@ -66,6 +75,7 @@ function updateServicesSection(data) {
 }
 
 function updateRoadmapSection(data) {
+    console.log("Updating Roadmap section with data:", data);
     const roadmapContent = document.getElementById('roadmap-content');
     roadmapContent.innerHTML = data.introduction + data.steps.map(step => `
         <div class="collapsible-card">
@@ -76,6 +86,7 @@ function updateRoadmapSection(data) {
 }
 
 function updateFaqSection(data) {
+    console.log("Updating FAQ section with data:", data);
     const faqIntro = document.getElementById('faq-intro');
     faqIntro.innerHTML = data.body;
 
@@ -89,6 +100,7 @@ function updateFaqSection(data) {
 }
 
 function updateContactSection(data) {
+    console.log("Updating Contact section with data:", data);
     const contactTitle = document.getElementById('contact-title');
     const contactBody = document.getElementById('contact-body');
     contactTitle.textContent = data.title;
@@ -96,6 +108,7 @@ function updateContactSection(data) {
 }
 
 function setupToggleButtons() {
+    console.log("Setting up toggle buttons...");
     const faqButton = document.getElementById('toggle-faq');
     const contactButton = document.getElementById('toggle-contact');
     const faqContent = document.getElementById('faq-content');
@@ -118,6 +131,7 @@ function setupToggleButtons() {
 }
 
 function setupSmoothScroll() {
+    console.log("Setting up smooth scroll...");
     document.querySelectorAll('.scroll-to').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -129,18 +143,25 @@ function setupSmoothScroll() {
 }
 
 function setupDynamicKeywords(heroData) {
+    console.log("Setting up dynamic keywords with data:", heroData);
     const dynamicKeywords = heroData.keywords;
     const dynamicKeywordElement = document.getElementById('dynamic-keyword');
     let heroIndex = 0;
 
     setInterval(() => {
-        dynamicKeywordElement.textContent = dynamicKeywords[heroIndex].text;
-        dynamicKeywordElement.style.color = dynamicKeywords[heroIndex].color;
-        heroIndex = (heroIndex + 1) % dynamicKeywords.length;
+        if (dynamicKeywords && dynamicKeywords.length > 0) {
+            dynamicKeywordElement.textContent = dynamicKeywords[heroIndex].text;
+            dynamicKeywordElement.style.color = dynamicKeywords[heroIndex].color;
+            console.log(`Changed keyword to: ${dynamicKeywords[heroIndex].text} with color ${dynamicKeywords[heroIndex].color}`);
+            heroIndex = (heroIndex + 1) % dynamicKeywords.length;
+        } else {
+            console.error("No keywords available to display.");
+        }
     }, 2000);
 }
 
 function setupDynamicSentences() {
+    console.log("Setting up dynamic sentences...");
     const roadmapThemes = [
         { text: "Innovation", color: "#FF7F00" },
         { text: "Growth", color: "#00FFFF" },
