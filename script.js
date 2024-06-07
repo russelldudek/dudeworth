@@ -21,8 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let heroIndex = 0;
     let roadmapIndex = 0;
+    let serviceThemeIndex = 0;
+    let faqThemeIndex = 0;
 
     const dynamicKeyword = document.getElementById("dynamic-keyword");
+    const dynamicServiceTheme = document.getElementById("dynamic-service-theme");
+    const dynamicTheme = document.getElementById("dynamic-theme");
+    const dynamicFaqTheme = document.getElementById("dynamic-faq-theme");
 
     setInterval(() => {
         dynamicKeyword.textContent = heroKeywords[heroIndex].text;
@@ -31,10 +36,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
 
     setInterval(() => {
-        const dynamicTheme = document.getElementById("dynamic-theme");
+        dynamicServiceTheme.textContent = roadmapThemes[serviceThemeIndex].text;
+        dynamicServiceTheme.style.color = roadmapThemes[serviceThemeIndex].color;
+        serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
+    }, 2000);
+
+    setInterval(() => {
         dynamicTheme.textContent = roadmapThemes[roadmapIndex].text;
         dynamicTheme.style.color = roadmapThemes[roadmapIndex].color;
         roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
+    }, 2000);
+
+    setInterval(() => {
+        dynamicFaqTheme.textContent = roadmapThemes[faqThemeIndex].text;
+        dynamicFaqTheme.style.color = roadmapThemes[faqThemeIndex].color;
+        faqThemeIndex = (faqThemeIndex + 1) % roadmapThemes.length;
     }, 2000);
 
     // Fetch and render about content
@@ -99,10 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const roadmapContent = document.getElementById('roadmap-content');
             roadmapContent.innerHTML = `
                 ${data.steps.map(step => `
-                    <div class="roadmap-step">
+                    <div class="collapsible-card">
                         <h3 class="collapsible" style="color: ${step.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${step.title}</h3>
                         <div class="content">${step.content}</div>
-                        <div class="arrow">↓</div>
                     </div>
                 `).join('')}
             `;
@@ -176,4 +191,3 @@ function toggleMenu() {
     const nav = document.getElementById('main-nav');
     nav.classList.toggle('show');
 }
-
