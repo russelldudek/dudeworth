@@ -76,6 +76,9 @@ function updateRoadmapSection(data) {
 }
 
 function updateFaqSection(data) {
+    const faqIntro = document.getElementById('faq-intro');
+    faqIntro.innerHTML = data.body;
+
     const faqContent = document.getElementById('faq-content');
     faqContent.innerHTML = data.questions.map(faq => `
         <div class="collapsible-card">
@@ -168,4 +171,3 @@ function setupDynamicSentences() {
         serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
     }, 2000);
 }
-
