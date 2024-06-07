@@ -44,6 +44,10 @@
         }
     ],
     "callToAction": "Unlock Your Business's Full Potential",
-    "finalNote": "Discover the perfect fit for AI automation by exploring our service tiers. Whether you're just starting or ready to lead in innovation, we have the ideal solution for your business. Contact us today to discuss your needs and embark on your AI journey with DudeWorth."
+    "finalNote": "Discover the perfect fit for AI automation by exploring our service tiers. Whether you're just starting or ready to lead in innovation, we have the ideal solution for your business. Contact us today to discuss your needs and embark on your AI journey with DudeWorth.",
+    "themes": [
+        { "text": "Innovation", "color": "#FF7F00" },
+        { "text": "Growth", "color": "#00FFFF" },
+        { "text": "Resilience", "color": "#FF1493" }
+    ]
 }
-

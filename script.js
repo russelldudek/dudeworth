@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async () => {
+documdocument.addEventListener('DOMContentLoaded', async () => {
     await loadContent();
     setupToggleButtons();
     setupSmoothScroll();
@@ -21,6 +21,9 @@ async function loadContent() {
         
         const heroData = await fetchJSON('hero.json');
         setupDynamicKeywords(heroData);
+
+        const contactData = await fetchJSON('contact.json');
+        updateContactSection(contactData);
     } catch (error) {
         console.error('Error loading content:', error);
     }
@@ -69,12 +72,20 @@ function updateRoadmapSection(data) {
 
 function updateFaqSection(data) {
     const faqContent = document.getElementById('faq-content');
-    faqContent.innerHTML = data.map(faq => `
+    const faqBody = `<p>${data.body}</p>`;
+    faqContent.innerHTML = faqBody + data.questions.map(faq => `
         <div class="collapsible-card">
             <h3 class="collapsible" style="color: ${faq.color};">${faq.question}</h3>
             <div class="content hidden">${faq.answer}</div>
         </div>
     `).join('');
+}
+
+function updateContactSection(data) {
+    const contactTitle = document.getElementById('contact-title');
+    const contactBody = document.getElementById('contact-body');
+    contactTitle.textContent = data.title;
+    contactBody.innerHTML = data.body;
 }
 
 function setupToggleButtons() {
@@ -133,6 +144,7 @@ function setupDynamicSentences() {
     let serviceThemeIndex = 0;
     const dynamicTheme = document.getElementById("dynamic-theme");
     const dynamicServiceTheme = document.getElementById("dynamic-service-theme");
+    const dynamicFaqTheme = document.getElementById("dynamic-faq-theme");
 
     setInterval(() => {
         dynamicTheme.textContent = roadmapThemes[roadmapIndex].text;
@@ -145,4 +157,11 @@ function setupDynamicSentences() {
         dynamicServiceTheme.style.color = roadmapThemes[serviceThemeIndex].color;
         serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
     }, 2000);
+
+    setInterval(() => {
+        dynamicFaqTheme.textContent = roadmapThemes[serviceThemeIndex].text;
+        dynamicFaqTheme.style.color = roadmapThemes[serviceThemeIndex].color;
+        serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
+    }, 2000);
 }
+
