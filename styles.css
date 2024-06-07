@@ -133,33 +133,51 @@ nav a {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.roadmap-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.roadmap-step {
+.collapsible-card {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 80%;
     max-width: 600px;
-    text-align: left;
-    box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
-.roadmap-step h3 {
+.collapsible-card h3 {
     margin-top: 0;
     font-size: 24px;
     cursor: pointer;
 }
 
-.roadmap-step .content {
+.collapsible-card .content {
     display: none;
     padding-top: 10px;
+}
+
+.collapsible {
+    cursor: pointer;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.collapsible.active, .collapsible:hover {
+    background-color: #ccc;
+}
+
+.collapsible + .content {
+    display: none;
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #ccc;
+    border-top: none;
+    text-align: left;
+}
+
+.collapsible.active + .content {
+    display: block;
 }
 
 .arrow {
@@ -214,59 +232,3 @@ footer p {
     cursor: pointer;
     margin-top: 10px;
 }
-
-.collapsible {
-    cursor: pointer;
-    background-color: #eee;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    text-align: left;
-}
-
-.collapsible.active, .collapsible:hover {
-    background-color: #ccc;
-}
-
-.collapsible + .content {
-    display: none;
-    padding: 10px;
-    border-radius: 0 0 5px 5px;
-    border: 1px solid #ccc;
-    border-top: none;
-    text-align: left;
-}
-
-.collapsible.active + .content {
-    display: block;
-}
-
-.collapsible-card {
-    margin-bottom: 20px;
-}
-
-#collapse-faq {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-
-.form-row {
-    display: flex;
-    justify-content: space-between;
-}
-
-.form-group {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.form-group:last-child {
-    margin-right: 0;
-}
-

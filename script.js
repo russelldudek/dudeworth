@@ -35,7 +35,7 @@ function updateAboutSection(data) {
     aboutContent.innerHTML = data.introduction + data.sections.map(section => `
         <div class="collapsible-card">
             <h3 class="collapsible" style="color: ${section.color};">${section.title}</h3>
-            <div class="content">${section.content}</div>
+            <div class="content hidden">${section.content}</div>
         </div>
     `).join('');
 }
@@ -45,7 +45,7 @@ function updateServicesSection(data) {
     servicesContent.innerHTML = data.introduction + data.tiers.map(tier => `
         <div class="collapsible-card">
             <h3 class="collapsible" style="color: ${tier.color};">${tier.title}</h3>
-            <div class="content">
+            <div class="content hidden">
                 <p>${tier.description}</p>
                 <ul>${tier.benefits.map(benefit => `<li>${benefit}</li>`).join('')}</ul>
             </div>
@@ -56,9 +56,9 @@ function updateServicesSection(data) {
 function updateRoadmapSection(data) {
     const roadmapContent = document.getElementById('roadmap-content');
     roadmapContent.innerHTML = data.introduction + data.steps.map(step => `
-        <div class="roadmap-step">
+        <div class="collapsible-card">
             <h3 class="collapsible" style="color: ${step.color};">${step.title}</h3>
-            <div class="content">${step.content}</div>
+            <div class="content hidden">${step.content}</div>
         </div>
     `).join('');
 }
@@ -68,7 +68,7 @@ function updateFaqSection(data) {
     faqContent.innerHTML = data.map(faq => `
         <div class="collapsible-card">
             <h3 class="collapsible" style="color: ${faq.color};">${faq.question}</h3>
-            <div class="content">${faq.answer}</div>
+            <div class="content hidden">${faq.answer}</div>
         </div>
     `).join('');
 }
