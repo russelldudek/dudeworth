@@ -255,7 +255,7 @@ footer {
     font-size: 14px;
 }
 
-#terms {
+.terms-container {
     background: #333;
     color: #fff;
     position: absolute;
@@ -266,13 +266,15 @@ footer {
     border-top: 1px solid #fff;
     transition: bottom 0.3s ease;
     text-align: left;
+    overflow-y: auto;
+    max-height: 60%;
 }
 
 #terms h2 {
     margin-top: 0;
 }
 
-#close-terms {
+.close-terms-button {
     background: #fff;
     color: #333;
     border: none;
