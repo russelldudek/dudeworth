@@ -254,7 +254,11 @@ function setupTermsToggle() {
     termsLink.addEventListener('click', function (e) {
         e.preventDefault();
         termsSection.classList.toggle('hidden');
-        termsSection.style.transform = termsSection.style.transform === 'translateY(100%)' ? 'translateY(0)' : 'translateY(100%)';
+        if (termsSection.classList.contains('hidden')) {
+            termsSection.style.transform = 'translateY(100%)';
+        } else {
+            termsSection.style.transform = 'translateY(0)';
+        }
     });
 
     closeTermsButton.addEventListener('click', function () {
