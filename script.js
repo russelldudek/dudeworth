@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupToggleButtons();
     setupSmoothScroll();
     setupDynamicSentences();
-    setupNeonHoverEffect();
-    setupContactForm();
 });
 
 async function loadContent() {
@@ -195,41 +193,3 @@ function setupDynamicSentences() {
     }, 2000);
 }
 
-function setupNeonHoverEffect() {
-    console.log("Setting up neon hover effect...");
-    const buttons = document.querySelectorAll('.cta-button');
-    const neonColors = [
-        '#FF073A', '#FF7F00', '#FFFF00', '#BFFF00',
-        '#00FF00', '#00FFFF', '#7FFFD4', '#007FFF',
-       ```javascript
-function setupNeonHoverEffect() {
-    console.log("Setting up neon hover effect...");
-    const buttons = document.querySelectorAll('.cta-button');
-    const neonColors = [
-        '#FF073A', '#FF7F00', '#FFFF00', '#BFFF00',
-        '#00FF00', '#00FFFF', '#7FFFD4', '#007FFF',
-        '#8A2BE2', '#FF1493', '#FF00FF'
-    ];
-
-    buttons.forEach(button => {
-        button.addEventListener('mouseover', () => {
-            const randomColor = neonColors[Math.floor(Math.random() * neonColors.length)];
-            button.style.backgroundColor = randomColor;
-        });
-
-        button.addEventListener('mouseout', () => {
-            button.style.backgroundColor = '#333'; // Reset to original color
-        });
-    });
-}
-
-function setupContactForm() {
-    console.log("Setting up contact form submission handling...");
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        console.log("Form submitted, changing button text to 'Thank You!'");
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        submitButton.textContent = 'Thank You!';
-    });
-}
