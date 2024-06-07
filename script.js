@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
     }, 2000);
 
+    // Fetch and render about content
     fetch('about.json')
         .then(response => response.json())
         .then(data => {
@@ -62,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
+    // Fetch and render services content
     fetch('services.json')
         .then(response => response.json())
         .then(data => {
@@ -90,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
+    // Fetch and render roadmap content
     fetch('roadmap.json')
         .then(response => response.json())
         .then(data => {
@@ -113,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
+    // Fetch and render FAQ content
     fetch('faq.json')
         .then(response => response.json())
         .then(data => {
@@ -133,17 +137,16 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
+    // Toggle FAQ visibility
     const toggleFaq = document.getElementById('toggle-faq');
     toggleFaq.addEventListener('click', () => {
         const faqContent = document.getElementById('faq-content');
-        const contents = faqContent.querySelectorAll('.content');
         const isHidden = toggleFaq.textContent === 'Show All';
-        contents.forEach(content => {
-            content.style.display = isHidden ? 'block' : 'none';
-        });
+        faqContent.style.display = isHidden ? 'block' : 'none';
         toggleFaq.textContent = isHidden ? 'Hide All' : 'Show All';
     });
 
+    // Contact form submission
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', (event) => {
         event.preventDefault();
