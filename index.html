@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DudeWorth</title>
+    <title>DudeWorth | AI Automation</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
     <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <img src="images/logo.svg" alt="DudeWorth Logo">
+        <img src="images/logo.svg" alt="DudeWorth Logo" class="logo">
         <nav id="main-nav">
             <a href="#hero" class="scroll-to">Home</a>
             <a href="#about" class="scroll-to">About</a>
@@ -18,12 +19,17 @@
             <a href="#faq" class="scroll-to">AI FAQ</a>
             <a href="#cta" class="scroll-to">Contact</a>
         </nav>
-        <button onclick="toggleMenu()">☰</button>
+        <div id="hamburger-menu" onclick="toggleMenu()">☰</div>
     </header>
     <section id="hero">
-        <h1>re:Think <span id="dynamic-keyword">Business</span></h1>
-        <h2>Transformed via AI Automation</h2>
-        <button id="get-started">Get Started</button>
+        <div class="hero-content">
+            <div class="rethink-container">
+                <h1 class="rethink-text">re:Think</h1>
+            </div>
+            <h2 id="dynamic-keyword">Business</h2>
+            <p>Transformed via AI Automation</p>
+            <a href="#cta" class="cta-button scroll-to">Get Started</a>
+        </div>
     </section>
     <section id="about"></section>
     <section id="services"></section>

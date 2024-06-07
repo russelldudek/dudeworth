@@ -103,111 +103,17 @@ document.addEventListener("DOMContentLoaded", () => {
             aboutSection.innerHTML = `
                 <h2>${data.title}</h2>
                 <p>${data.description}</p>
-                <div class="collapsible-card">
-                    <h3 class="collapsible" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${data.missionHeading}</h3>
-                    <div class="content">
-                        <p>${data.missionDescription}</p>
+                ${data.collapsibleCards.map(card => `
+                    <div class="collapsible-card">
+                        <h3 class="collapsible" style="color: ${card.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${card.title}</h3>
+                        <div class="content">
+                            <p>${card.content}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="collapsible-card">
-                    <h3 class="collapsible" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${data.visionHeading}</h3>
-                    <div class="content">
-                        <p>${data.visionDescription}</p>
-                    </div>
-                </div>
-                <div class="collapsible-card">
-                    <h3 class="collapsible" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${data.callToActionHeading}</h3>
-                    <div class="content">
-                        <p>${data.callToActionDescription}</p>
-                    </div>
-                </div>
+                `).join('')}
+                <h3>${data.callToAction.title}</h3>
+                <p>${data.callToAction.content}</p>
             `;
-
-            const collapsibles = document.querySelectorAll(".collapsible");
-            collapsibles.forEach(collapsible => {
-                collapsible.addEventListener("click", () => {
-                    collapsible.classList.toggle("active");
-                    const content = collapsible.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                });
-            });
-        });
-
-    // Fetch and load Services section
-    fetch('services.json')
-        .then(response => response.json())
-        .then(data => {
-            const servicesSection = document.getElementById("services");
-            servicesSection.innerHTML = `
-                <h2>${data.title}</h2>
-                <p>${data.description}</p>
-            `;
-
-            data.tiers.forEach((tier, index) => {
-                const collapsibleCard = document.createElement('div');
-                collapsibleCard.classList.add('collapsible-card');
-                collapsibleCard.innerHTML = `
-                    <h3 class="collapsible" style="color: ${tier.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${tier.title}</h3>
-                    <div class="content">
-                        <p>${tier.content}</p>
-                        <ul>${tier.items.map(item => `<li>${item}</li>`).join('')}</ul>
-                    </div>
-                `;
-                servicesSection.appendChild(collapsibleCard);
-            });
-
-            const collapsibles = document.querySelectorAll(".collapsible");
-            collapsibles.forEach(collapsible => {
-                collapsible.addEventListener("click", () => {
-                    collapsible.classList.toggle("active");
-                    const content = collapsible.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                });
-            });
-        });
-
-    // Fetch and load Roadmap section
-    fetch('roadmap.json')
-        .then(response => response.json())
-        .then(data => {
-            const roadmapSection = document.getElementById("introduction");
-            roadmapSection.innerHTML = `
-                <h2>${data.title}</h2>
-                <p>${data.description}</p>
-            `;
-
-            data.steps.forEach((step, index) => {
-                const collapsibleCard = document.createElement('div');
-                collapsibleCard.classList.add('collapsible-card');
-                collapsibleCard.innerHTML = `
-                    <h3 class="collapsible" style="color: ${step.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${index + 1}. ${step.title}</h3>
-                    <div class="content">
-                        <p>${step.content}</p>
-                    </div>
-                `;
-                roadmapSection.appendChild(collapsibleCard);
-            });
-
-            const collapsibles = document.querySelectorAll(".collapsible");
-            collapsibles.forEach(collapsible => {
-                collapsible.addEventListener("click", () => {
-                    collapsible.classList.toggle("active");
-                    const content = collapsible.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                });
-            });
         });
 
     // Fetch and load FAQ section
@@ -218,23 +124,25 @@ document.addEventListener("DOMContentLoaded", () => {
             faqSection.innerHTML = `
                 <h2>${data.title}</h2>
                 <p>${data.description}</p>
-                <button id="collapse-faq" class="cta-button">Collapse All</button>
+                <button id="collapse-faq" class="cta-button">${data.buttonText}</button>
+                ${data.questions.map(question => `
+                    <div class="collapsible-card">
+                        <h3 class="collapsible" style="color: ${question.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${question.title}</h3>
+                        <div class="content">
+                            <p>${question.answer}</p>
+                        </div>
+                    </div>
+                `).join('')}
             `;
 
-            data.questions.forEach((question, index) => {
-                const collapsibleCard = document.createElement('div');
-                collapsibleCard.classList.add('collapsible-card');
-                collapsibleCard.innerHTML = `
-                    <h3 class="collapsible" style="color: ${question.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${index + 1}. ${question.title}</h3>
-                    <div class="content">
-                        <p>${question.content}</p>
-                    </div>
-                `;
-                faqSection.appendChild(collapsibleCard);
+            const faqCollapseButton = document.getElementById("collapse-faq");
+            faqCollapseButton.addEventListener("click", () => {
+                document.querySelectorAll("#faq .collapsible-card .content").forEach(content => {
+                    content.style.display = content.style.display === "block" ? "none" : "block";
+                });
             });
 
-            const collapsibles = document.querySelectorAll(".collapsible");
-            collapsibles.forEach(collapsible => {
+            document.querySelectorAll("#faq .collapsible").forEach(collapsible => {
                 collapsible.addEventListener("click", () => {
                     collapsible.classList.toggle("active");
                     const content = collapsible.nextElementSibling;
@@ -245,15 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             });
-
-            document.getElementById("collapse-faq").addEventListener("click", () => {
-                collapsibles.forEach(collapsible => {
-                    const content = collapsible.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    }
-                });
-            });
         });
 });
 
@@ -261,4 +160,3 @@ function toggleMenu() {
     const nav = document.getElementById('main-nav');
     nav.classList.toggle('show');
 }
-
