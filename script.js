@@ -1,56 +1,76 @@
-document.addEventListener('DOMContentLoaded', () => {
-    loadContent();
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadContent();
     setupToggleButtons();
     setupSmoothScroll();
 });
 
-function loadContent() {
-    fetch('about.json')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('about-content').innerHTML = data.introduction + data.sections.map(section => `
-                <div class="collapsible-card">
-                    <h3 class="collapsible" style="color: ${section.color};">${section.title}</h3>
-                    <div class="content">${section.content}</div>
-                </div>
-            `).join('');
-        });
+async function loadContent() {
+    try {
+        const aboutData = await fetchJSON('about.json');
+        updateAboutSection(aboutData);
 
-    fetch('services.json')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('services-content').innerHTML = data.introduction + data.tiers.map(tier => `
-                <div class="collapsible-card">
-                    <h3 class="collapsible" style="color: ${tier.color};">${tier.title}</h3>
-                    <div class="content">
-                        <p>${tier.description}</p>
-                        <ul>${tier.benefits.map(benefit => `<li>${benefit}</li>`).join('')}</ul>
-                    </div>
-                </div>
-            `).join('');
-        });
+        const servicesData = await fetchJSON('services.json');
+        updateServicesSection(servicesData);
 
-    fetch('roadmap.json')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('roadmap-content').innerHTML = data.introduction + data.steps.map(step => `
-                <div class="roadmap-step">
-                    <h3 class="collapsible" style="color: ${step.color};">${step.title}</h3>
-                    <div class="content">${step.content}</div>
-                </div>
-            `).join('');
-        });
+        const roadmapData = await fetchJSON('roadmap.json');
+        updateRoadmapSection(roadmapData);
 
-    fetch('faq.json')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('faq-content').innerHTML = data.map(faq => `
-                <div class="collapsible-card">
-                    <h3 class="collapsible" style="color: ${faq.color};">${faq.question}</h3>
-                    <div class="content">${faq.answer}</div>
-                </div>
-            `).join('');
-        });
+        const faqData = await fetchJSON('faq.json');
+        updateFaqSection(faqData);
+    } catch (error) {
+        console.error('Error loading content:', error);
+    }
+}
+
+async function fetchJSON(url) {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch ${url}`);
+    }
+    return response.json();
+}
+
+function updateAboutSection(data) {
+    const aboutContent = document.getElementById('about-content');
+    aboutContent.innerHTML = data.introduction + data.sections.map(section => `
+        <div class="collapsible-card">
+            <h3 class="collapsible" style="color: ${section.color};">${section.title}</h3>
+            <div class="content">${section.content}</div>
+        </div>
+    `).join('');
+}
+
+function updateServicesSection(data) {
+    const servicesContent = document.getElementById('services-content');
+    servicesContent.innerHTML = data.introduction + data.tiers.map(tier => `
+        <div class="collapsible-card">
+            <h3 class="collapsible" style="color: ${tier.color};">${tier.title}</h3>
+            <div class="content">
+                <p>${tier.description}</p>
+                <ul>${tier.benefits.map(benefit => `<li>${benefit}</li>`).join('')}</ul>
+            </div>
+        </div>
+    `).join('');
+}
+
+function updateRoadmapSection(data) {
+    const roadmapContent = document.getElementById('roadmap-content');
+    roadmapContent.innerHTML = data.introduction + data.steps.map(step => `
+        <div class="roadmap-step">
+            <h3 class="collapsible" style="color: ${step.color};">${step.title}</h3>
+            <div class="content">${step.content}</div>
+        </div>
+    `).join('');
+}
+
+function updateFaqSection(data) {
+    const faqContent = document.getElementById('faq-content');
+    faqContent.innerHTML = data.map(faq => `
+        <div class="collapsible-card">
+            <h3 class="collapsible" style="color: ${faq.color};">${faq.question}</h3>
+            <div class="content">${faq.answer}</div>
+        </div>
+    `).join('');
 }
 
 function setupToggleButtons() {
@@ -67,11 +87,11 @@ function setupToggleButtons() {
         contactForm.classList.toggle('hidden');
     });
 
-    document.querySelectorAll('.collapsible').forEach(item => {
-        item.addEventListener('click', () => {
-            item.classList.toggle('active');
-            item.nextElementSibling.classList.toggle('hidden');
-        });
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('collapsible')) {
+            event.target.classList.toggle('active');
+            event.target.nextElementSibling.classList.toggle('hidden');
+        }
     });
 }
 
