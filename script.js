@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
         { text: "Healthcare", color: "#BFFF00" },
         { text: "Finance", color: "#00FF00" },
         { text: "Retail", color: "#00FFFF" },
-        { text: "Manufacturing", color: "#007FFF" },
-        { text: "Energy", color: "#8A2BE2" },
-        { text: "Transportation", color: "#FF1493" },
-        { text: "Agriculture", color: "#FF00FF" },
-        { text: "Safety", color: "#FF073A" }
+        { text: "Manufacturing", color: "#7FFFD4" },
+        { text: "Energy", color: "#007FFF" },
+        { text: "Transportation", color: "#8A2BE2" },
+        { text: "Agriculture", color: "#FF1493" },
+        { text: "Safety", color: "#FF00FF" }
     ];
 
     const roadmapThemes = [
@@ -21,10 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let heroIndex = 0;
     let roadmapIndex = 0;
-    let serviceThemeIndex = 0;
+
     const dynamicKeyword = document.getElementById("dynamic-keyword");
-    const dynamicTheme = document.getElementById("dynamic-theme");
-    const dynamicServiceTheme = document.getElementById("dynamic-service-theme");
 
     setInterval(() => {
         dynamicKeyword.textContent = heroKeywords[heroIndex].text;
@@ -32,52 +30,128 @@ document.addEventListener("DOMContentLoaded", () => {
         heroIndex = (heroIndex + 1) % heroKeywords.length;
     }, 2000);
 
-    setInterval(() => {
-        dynamicTheme.textContent = roadmapThemes[roadmapIndex].text;
-        dynamicTheme.style.color = roadmapThemes[roadmapIndex].color;
-        roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
-    }, 2000);
+    fetch('about.json')
+        .then(response => response.json())
+        .then(data => {
+            const aboutContent = document.getElementById('about-content');
+            aboutContent.innerHTML = `
+                <p>${data.introduction}</p>
+                ${data.sections.map(section => `
+                    <div class="collapsible-card">
+                        <h3 class="collapsible" style="color: ${section.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${section.title}</h3>
+                        <div class="content">${section.content}</div>
+                    </div>
+                `).join('')}
+                <h3>${data.callToAction}</h3>
+                <p>${data.finalNote}</p>
+            `;
 
-    setInterval(() => {
-        dynamicServiceTheme.textContent = roadmapThemes[serviceThemeIndex].text;
-        dynamicServiceTheme.style.color = roadmapThemes[serviceThemeIndex].color;
-        serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
-    }, 2000);
-
-    const collapsibles = document.querySelectorAll(".collapsible");
-    collapsibles.forEach(collapsible => {
-        collapsible.addEventListener("click", () => {
-            collapsible.classList.toggle("active");
-            const content = collapsible.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
+            document.querySelectorAll('.collapsible').forEach(collapsible => {
+                collapsible.addEventListener('click', () => {
+                    collapsible.classList.toggle('active');
+                    const content = collapsible.nextElementSibling;
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                });
+            });
         });
+
+    fetch('services.json')
+        .then(response => response.json())
+        .then(data => {
+            const servicesContent = document.getElementById('services-content');
+            servicesContent.innerHTML = `
+                <p>${data.introduction}</p>
+                ${data.tiers.map(tier => `
+                    <div class="collapsible-card">
+                        <h3 class="collapsible" style="color: ${tier.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${tier.title}</h3>
+                        <div class="content">
+                            <p>${tier.description}</p>
+                            <ul>${tier.benefits.map(benefit => `<li>${benefit}</li>`).join('')}</ul>
+                        </div>
+                    </div>
+                `).join('')}
+                <h3>${data.callToAction}</h3>
+                <p>${data.finalNote}</p>
+            `;
+
+            document.querySelectorAll('.collapsible').forEach(collapsible => {
+                collapsible.addEventListener('click', () => {
+                    collapsible.classList.toggle('active');
+                    const content = collapsible.nextElementSibling;
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+
+    fetch('roadmap.json')
+        .then(response => response.json())
+        .then(data => {
+            const roadmapContent = document.getElementById('roadmap-content');
+            roadmapContent.innerHTML = `
+                <p>${data.introduction}</p>
+                ${data.steps.map(step => `
+                    <div class="roadmap-step">
+                        <h3 class="collapsible" style="color: ${step.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${step.title}</h3>
+                        <div class="content">${step.content}</div>
+                    </div>
+                    <div class="arrow">↓</div>
+                `).join('')}
+            `;
+
+            document.querySelectorAll('.collapsible').forEach(collapsible => {
+                collapsible.addEventListener('click', () => {
+                    collapsible.classList.toggle('active');
+                    const content = collapsible.nextElementSibling;
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+
+    fetch('faq.json')
+        .then(response => response.json())
+        .then(data => {
+            const faqContent = document.getElementById('faq-content');
+            faqContent.innerHTML = data.map(item => `
+                <div class="collapsible-card">
+                    <h3 class="collapsible" style="color: ${item.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${item.question}</h3>
+                    <div class="content">${item.answer}</div>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.collapsible').forEach(collapsible => {
+                collapsible.addEventListener('click', () => {
+                    collapsible.classList.toggle('active');
+                    const content = collapsible.nextElementSibling;
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+
+    const toggleFaq = document.getElementById('toggle-faq');
+    toggleFaq.addEventListener('click', () => {
+        const faqContent = document.getElementById('faq-content');
+        const contents = faqContent.querySelectorAll('.content');
+        const isHidden = toggleFaq.textContent === 'Show All';
+        contents.forEach(content => {
+            content.style.display = isHidden ? 'block' : 'none';
+        });
+        toggleFaq.textContent = isHidden ? 'Hide All' : 'Show All';
     });
 
-    const contactToggle = document.getElementById("contact-toggle");
-    contactToggle.addEventListener("click", (event) => {
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        const contactSection = document.getElementById("contact-section");
-        if (contactSection.style.display === "none" || contactSection.style.display === "") {
-            contactSection.style.display = "flex";
-            contactToggle.textContent = "Hide Contact Form";
-        } else {
-            contactSection.style.display = "none";
-            contactToggle.textContent = "Contact Us Today";
-        }
+        const submitButton = contactForm.querySelector("button[type='submit']");
+        submitButton.textContent = "Thank You";
     });
 
+    // Smooth scrolling for links
     document.querySelectorAll('.scroll-to').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
-            const offset = 30;
-
+            const offset = 30; // Offset for sticky header
             const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
             const offsetPosition = elementPosition - offset;
 
@@ -87,73 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     });
-
-    const contactForm = document.getElementById("contact-form");
-    contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const submitButton = contactForm.querySelector("button[type='submit']");
-        submitButton.textContent = "Thank You";
-    });
-
-    // Fetch and load About section
-    fetch('about.json')
-        .then(response => response.json())
-        .then(data => {
-            const aboutSection = document.getElementById("about");
-            aboutSection.innerHTML = `
-                <h2>${data.title}</h2>
-                <p>${data.description}</p>
-                ${data.collapsibleCards.map(card => `
-                    <div class="collapsible-card">
-                        <h3 class="collapsible" style="color: ${card.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${card.title}</h3>
-                        <div class="content">
-                            <p>${card.content}</p>
-                        </div>
-                    </div>
-                `).join('')}
-                <h3>${data.callToAction.title}</h3>
-                <p>${data.callToAction.content}</p>
-            `;
-        });
-
-    // Fetch and load FAQ section
-    fetch('faq.json')
-        .then(response => response.json())
-        .then(data => {
-            const faqSection = document.getElementById("faq");
-            faqSection.innerHTML = `
-                <h2>${data.title}</h2>
-                <p>${data.description}</p>
-                <button id="collapse-faq" class="cta-button">${data.buttonText}</button>
-                ${data.questions.map(question => `
-                    <div class="collapsible-card">
-                        <h3 class="collapsible" style="color: ${question.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${question.title}</h3>
-                        <div class="content">
-                            <p>${question.answer}</p>
-                        </div>
-                    </div>
-                `).join('')}
-            `;
-
-            const faqCollapseButton = document.getElementById("collapse-faq");
-            faqCollapseButton.addEventListener("click", () => {
-                document.querySelectorAll("#faq .collapsible-card .content").forEach(content => {
-                    content.style.display = content.style.display === "block" ? "none" : "block";
-                });
-            });
-
-            document.querySelectorAll("#faq .collapsible").forEach(collapsible => {
-                collapsible.addEventListener("click", () => {
-                    collapsible.classList.toggle("active");
-                    const content = collapsible.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                });
-            });
-        });
 });
 
 function toggleMenu() {

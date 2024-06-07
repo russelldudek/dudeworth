@@ -1,7 +1,6 @@
 {
-    "title": "Why DudeWorth?",
-    "description": "In the not-so-distant past, AI was a fantastical dream, something that belonged to the realms of science fiction. Yet, today, AI has leaped off the pages of sci-fi novels and into the very fabric of our everyday lives. From smart assistants in our homes to autonomous vehicles on our roads, AI is transforming the world at a breakneck pace. Businesses of all sizes are confronted with the exhilarating yet daunting challenge of harnessing this incredible power. The question isn't if you should embrace AI, but how swiftly you can adapt to stay ahead. This is where your journey with DudeWorth begins.",
-    "collapsibleCards": [
+    "introduction": "In the not-so-distant past, AI was a fantastical dream, something that belonged to the realms of science fiction. Yet, today, AI has leaped off the pages of sci-fi novels and into the very fabric of our everyday lives. From smart assistants in our homes to autonomous vehicles on our roads, AI is transforming the world at a breakneck pace. Businesses of all sizes are confronted with the exhilarating yet daunting challenge of harnessing this incredible power. The question isn't if you should embrace AI, but how swiftly you can adapt to stay ahead. This is where your journey with DudeWorth begins.",
+    "sections": [
         {
             "title": "Our Commitment to Your Success",
             "color": "#FF073A",
@@ -13,8 +12,6 @@
             "content": "We envision a world where businesses, regardless of size, can seamlessly integrate AI into their operations, unlocking new opportunities and driving sustainable growth. At DudeWorth, we are dedicated to leading from the pole position in AI automation, continually pushing the boundaries of what’s possible and defining next-level possibilities for our esteemed clients."
         }
     ],
-    "callToAction": {
-        "title": "Join Us on the Path to Excellence",
-        "content": "AI is no longer a distant dream – it is here, reshaping industries and revolutionizing the way we do business. The future is now, and the time to act is today. Don’t be left behind in the digital revolution. Ready to embark on a journey of transformation and success? <strong>Contact us today</strong> to learn more about our services and discover how DudeWorth can help you `re:Think` your business strategies and achieve game-changing results."
-    }
+    "callToAction": "Join Us on the Path to Excellence",
+    "finalNote": "AI is no longer a distant dream – it is here, reshaping industries and revolutionizing the way we do business. The future is now, and the time to act is today. Don’t be left behind in the digital revolution. Ready to embark on a journey of transformation and success? Contact us today to learn more about our services and discover how DudeWorth can help you `re:Think` your business strategies and achieve game-changing results."
 }
