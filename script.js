@@ -30,6 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
         heroIndex = (heroIndex + 1) % heroKeywords.length;
     }, 2000);
 
+    setInterval(() => {
+        const dynamicTheme = document.getElementById("dynamic-theme");
+        dynamicTheme.textContent = roadmapThemes[roadmapIndex].text;
+        dynamicTheme.style.color = roadmapThemes[roadmapIndex].color;
+        roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
+    }, 2000);
+
     fetch('about.json')
         .then(response => response.json())
         .then(data => {
@@ -88,13 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             const roadmapContent = document.getElementById('roadmap-content');
             roadmapContent.innerHTML = `
-                <p>${data.introduction}</p>
                 ${data.steps.map(step => `
                     <div class="roadmap-step">
                         <h3 class="collapsible" style="color: ${step.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${step.title}</h3>
                         <div class="content">${step.content}</div>
+                        <div class="arrow">↓</div>
                     </div>
-                    <div class="arrow">↓</div>
                 `).join('')}
             `;
 
@@ -167,3 +173,4 @@ function toggleMenu() {
     const nav = document.getElementById('main-nav');
     nav.classList.toggle('show');
 }
+
