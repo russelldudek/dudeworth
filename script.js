@@ -50,7 +50,7 @@ function updateAboutSection(data) {
     const aboutContent = document.getElementById('about-content');
     aboutContent.innerHTML = data.introduction + data.sections.map(section => `
         <div class="collapsible-card">
-            <h3 class="collapsible" style="color: ${section.color};">${section.title}</h3>
+            <h3 class="collapsible" style="color: ${section.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${section.title}</h3>
             <div class="content hidden">${section.content}</div>
         </div>
     `).join('') + `
@@ -66,7 +66,7 @@ function updateServicesSection(data) {
     const servicesContent = document.getElementById('services-content');
     servicesContent.innerHTML = data.introduction + data.tiers.map(tier => `
         <div class="collapsible-card">
-            <h3 class="collapsible" style="color: ${tier.color};">${tier.title}</h3>
+            <h3 class="collapsible" style="color: ${tier.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${tier.title}</h3>
             <div class="content hidden">
                 <p>${tier.description}</p>
                 <ul>${tier.benefits.map(benefit => `<li>${benefit}</li>`).join('')}</ul>
@@ -80,7 +80,7 @@ function updateRoadmapSection(data) {
     const roadmapContent = document.getElementById('roadmap-content');
     roadmapContent.innerHTML = data.introduction + data.steps.map(step => `
         <div class="collapsible-card">
-            <h3 class="collapsible" style="color: ${step.color};">${step.title}</h3>
+            <h3 class="collapsible" style="color: ${step.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${step.title}</h3>
             <div class="content hidden">${step.content}</div>
         </div>
     `).join('');
@@ -94,7 +94,7 @@ function updateFaqSection(data) {
     const faqContent = document.getElementById('faq-content');
     faqContent.innerHTML = data.questions.map(faq => `
         <div class="collapsible-card">
-            <h3 class="collapsible" style="color: ${faq.color};">${faq.question}</h3>
+            <h3 class="collapsible" style="color: ${faq.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${faq.question}</h3>
             <div class="content hidden">${faq.answer}</div>
         </div>
     `).join('');
@@ -153,6 +153,7 @@ function setupDynamicKeywords(heroData) {
         if (dynamicKeywords && dynamicKeywords.length > 0) {
             dynamicKeywordElement.textContent = dynamicKeywords[heroIndex].text;
             dynamicKeywordElement.style.color = dynamicKeywords[heroIndex].color;
+            dynamicKeywordElement.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)"; // Adding drop shadow
             console.log(`Changed keyword to: ${dynamicKeywords[heroIndex].text} with color ${dynamicKeywords[heroIndex].color}`);
             heroIndex = (heroIndex + 1) % dynamicKeywords.length;
         } else {
@@ -178,18 +179,21 @@ function setupDynamicSentences() {
     setInterval(() => {
         dynamicTheme.textContent = roadmapThemes[roadmapIndex].text;
         dynamicTheme.style.color = roadmapThemes[roadmapIndex].color;
+        dynamicTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)"; // Adding drop shadow
         roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
     }, 2000);
 
     setInterval(() => {
         dynamicServiceTheme.textContent = roadmapThemes[serviceThemeIndex].text;
         dynamicServiceTheme.style.color = roadmapThemes[serviceThemeIndex].color;
+        dynamicServiceTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)"; // Adding drop shadow
         serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
     }, 2000);
 
     setInterval(() => {
         dynamicFaqTheme.textContent = roadmapThemes[serviceThemeIndex].text;
         dynamicFaqTheme.style.color = roadmapThemes[serviceThemeIndex].color;
+        dynamicFaqTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)"; // Adding drop shadow
         serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
     }, 2000);
 }
@@ -206,3 +210,4 @@ function setupButtonHoverEffect() {
         });
     });
 }
+
