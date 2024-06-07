@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupToggleButtons();
     setupSmoothScroll();
     setupDynamicSentences();
+    setupDynamicKeywords();
 });
 
 async function loadContent() {
@@ -77,8 +78,7 @@ function updateRoadmapSection(data) {
 
 function updateFaqSection(data) {
     const faqContent = document.getElementById('faq-content');
-    const faqBody = `<p>${data.body}</p>`;
-    faqContent.innerHTML = faqBody + data.questions.map(faq => `
+    faqContent.innerHTML = data.questions.map(faq => `
         <div class="collapsible-card">
             <h3 class="collapsible" style="color: ${faq.color};">${faq.question}</h3>
             <div class="content hidden">${faq.answer}</div>
