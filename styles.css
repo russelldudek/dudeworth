@@ -232,3 +232,42 @@ footer {
     padding-top: 10px;
     font-size: 14px;
 }
+
+.cta-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Add this section to change button color on hover */
+.neon-hover:hover {
+    background-color: var(--neon-color);
+}
+
+:root {
+    --neon-red: #FF073A;
+    --neon-orange: #FF7F00;
+    --neon-yellow: #FFFF00;
+    --neon-lime: #BFFF00;
+    --neon-green: #00FF00;
+    --neon-cyan: #00FFFF;
+    --neon-aqua: #7FFFD4;
+    --neon-blue: #007FFF;
+    --neon-violet: #8A2BE2;
+    --neon-pink: #FF1493;
+    --neon-magenta: #FF00FF;
+}
