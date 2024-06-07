@@ -264,7 +264,7 @@ footer {
     width: 100%;
     padding: 20px;
     border-top: 1px solid #fff;
-    transition: bottom 0.3s ease;
+    transition: transform 0.3s ease;
     text-align: left;
     overflow-y: auto;
     max-height: 60%;
