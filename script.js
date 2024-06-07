@@ -18,6 +18,9 @@ async function loadContent() {
 
         const faqData = await fetchJSON('faq.json');
         updateFaqSection(faqData);
+        
+        const heroData = await fetchJSON('hero.json');
+        setupDynamicKeywords(heroData);
     } catch (error) {
         console.error('Error loading content:', error);
     }
@@ -107,13 +110,39 @@ function setupSmoothScroll() {
     });
 }
 
-function setupDynamicSentences() {
-    const dynamicKeywords = ['Innovation', 'Growth', 'Resiliency'];
+function setupDynamicKeywords(heroData) {
+    const dynamicKeywords = heroData.keywords;
     const dynamicKeywordElement = document.getElementById('dynamic-keyword');
-    let currentIndex = 0;
+    let heroIndex = 0;
 
     setInterval(() => {
-        currentIndex = (currentIndex + 1) % dynamicKeywords.length;
-        dynamicKeywordElement.textContent = dynamicKeywords[currentIndex];
-    }, 3000);
+        dynamicKeywordElement.textContent = dynamicKeywords[heroIndex].text;
+        dynamicKeywordElement.style.color = dynamicKeywords[heroIndex].color;
+        heroIndex = (heroIndex + 1) % dynamicKeywords.length;
+    }, 2000);
+}
+
+function setupDynamicSentences() {
+    const roadmapThemes = [
+        { text: "Innovation", color: "#FF7F00" },
+        { text: "Growth", color: "#00FFFF" },
+        { text: "Resilience", color: "#FF1493" }
+    ];
+
+    let roadmapIndex = 0;
+    let serviceThemeIndex = 0;
+    const dynamicTheme = document.getElementById("dynamic-theme");
+    const dynamicServiceTheme = document.getElementById("dynamic-service-theme");
+
+    setInterval(() => {
+        dynamicTheme.textContent = roadmapThemes[roadmapIndex].text;
+        dynamicTheme.style.color = roadmapThemes[roadmapIndex].color;
+        roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
+    }, 2000);
+
+    setInterval(() => {
+        dynamicServiceTheme.textContent = roadmapThemes[serviceThemeIndex].text;
+        dynamicServiceTheme.style.color = roadmapThemes[serviceThemeIndex].color;
+        serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
+    }, 2000);
 }

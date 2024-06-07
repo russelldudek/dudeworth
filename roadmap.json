@@ -26,5 +26,10 @@
             "color": "#00FF00",
             "content": "Maximize your AI potential. We regularly evaluate the impact of AI on your business, identifying opportunities to scale successful solutions. By aligning AI initiatives with your broader business strategy, we help you maximize ROI and drive sustained growth."
         }
+    ],
+    "themes": [
+        { "text": "Innovation", "color": "#FF7F00" },
+        { "text": "Growth", "color": "#00FFFF" },
+        { "text": "Resilience", "color": "#FF1493" }
     ]
 }
