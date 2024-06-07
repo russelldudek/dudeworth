@@ -202,11 +202,26 @@ function setupButtonHoverEffect() {
     const neonColors = [
         'red', 'orange', 'yellow', 'lime', 'green', 'aqua', 'cyan', 'blue', 'indigo', 'deeppink', 'magenta'
     ];
+    
+    const complementaryColors = {
+        'red': 'cyan',
+        'orange': 'blue',
+        'yellow': 'indigo',
+        'lime': 'magenta',
+        'green': 'deeppink',
+        'aqua': 'red',
+        'cyan': 'red',
+        'blue': 'orange',
+        'indigo': 'yellow',
+        'deeppink': 'lime',
+        'magenta': 'green'
+    };
 
     document.querySelectorAll('.cta-button').forEach(button => {
         button.addEventListener('mouseover', () => {
             const randomColor = neonColors[Math.floor(Math.random() * neonColors.length)];
             button.style.setProperty('--neon-color', randomColor);
+            button.style.setProperty('--complementary-color', complementaryColors[randomColor]);
         });
     });
 }
