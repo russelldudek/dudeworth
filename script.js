@@ -29,6 +29,10 @@ async function loadContent() {
 
         const contactData = await fetchJSON('contact.json');
         updateContactSection(contactData);
+
+        const termsData = await fetchJSON('terms.json');
+        updateTermsSection(termsData);
+
         console.log("All content loaded successfully.");
     } catch (error) {
         console.error('Error loading content:', error);
@@ -107,6 +111,21 @@ function updateContactSection(data) {
     const contactBody = document.getElementById('contact-body');
     contactTitle.textContent = data.title;
     contactBody.innerHTML = data.body;
+}
+
+function updateTermsSection(data) {
+    console.log("Updating Terms section with data:", data);
+    const termsContent = document.getElementById('terms-content');
+    termsContent.innerHTML = data.termsAndConditions.sections.map(section => `
+        <h3>${section.title}</h3>
+        <p>${section.content}</p>
+    `).join('') + `
+        <h2>Privacy Policy</h2>
+        ${data.privacyPolicy.sections.map(section => `
+            <h3>${section.title}</h3>
+            <p>${section.content}</p>
+        `).join('')}
+    `;
 }
 
 function setupToggleButtons() {
@@ -228,16 +247,18 @@ function setupButtonHoverEffect() {
 }
 
 function setupTermsToggle() {
-    const termsLink = document.querySelector('a[href="#terms"]');
+    const termsLink = document.getElementById('terms-link');
     const termsSection = document.getElementById('terms');
     const closeTermsButton = document.getElementById('close-terms');
 
     termsLink.addEventListener('click', function (e) {
         e.preventDefault();
-        termsSection.style.bottom = '0';
+        termsSection.classList.toggle('hidden');
+        termsSection.style.bottom = termsSection.style.bottom === '0' ? '-100%' : '0';
     });
 
     closeTermsButton.addEventListener('click', function () {
+        termsSection.classList.add('hidden');
         termsSection.style.bottom = '-100%';
     });
 }
