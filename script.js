@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupToggleButtons();
     setupSmoothScroll();
     setupDynamicSentences();
-    setupDynamicKeywords();
 });
 
 async function loadContent() {
@@ -19,9 +18,9 @@ async function loadContent() {
 
         const faqData = await fetchJSON('faq.json');
         updateFaqSection(faqData);
-        
+
         const heroData = await fetchJSON('hero.json');
-        setupDynamicKeywords(heroData);
+        setupDynamicKeywords(heroData); // Call this function correctly here
 
         const contactData = await fetchJSON('contact.json');
         updateContactSection(contactData);
