@@ -10,7 +10,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 20px;
+    padding: 10px 20px;
     background-color: #f0f0f0;
     position: sticky;
     top: 0;
@@ -28,6 +28,8 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     color: #333;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 #hamburger-menu {
@@ -99,7 +101,6 @@ nav a {
     background: linear-gradient(to right, #0066cc, #00cc66);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content h2 {
@@ -123,11 +124,12 @@ nav a {
     display: inline-block;
     text-align: center;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: var(--neon-color);
+    color: #333;
 }
 
 .hidden {
@@ -146,8 +148,6 @@ nav a {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
     margin-bottom: 20px;
 }
 
@@ -155,12 +155,14 @@ nav a {
     margin-top: 0;
     font-size: 24px;
     cursor: pointer;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Drop shadow for colored text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .collapsible-card .content {
     display: none;
     padding-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 .collapsible {
@@ -170,6 +172,8 @@ nav a {
     border-radius: 5px;
     border: 1px solid #ccc;
     text-align: left;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .collapsible.active, .collapsible:hover {
@@ -244,9 +248,12 @@ footer {
 
 .section-container {
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    margin: 20px;
+    padding: 40px;
+    margin: 40px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 

@@ -153,7 +153,7 @@ function setupDynamicKeywords(heroData) {
         if (dynamicKeywords && dynamicKeywords.length > 0) {
             dynamicKeywordElement.textContent = dynamicKeywords[heroIndex].text;
             dynamicKeywordElement.style.color = dynamicKeywords[heroIndex].color;
-            dynamicKeywordElement.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)"; // Adding drop shadow
+            dynamicKeywordElement.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
             console.log(`Changed keyword to: ${dynamicKeywords[heroIndex].text} with color ${dynamicKeywords[heroIndex].color}`);
             heroIndex = (heroIndex + 1) % dynamicKeywords.length;
         } else {
@@ -179,21 +179,21 @@ function setupDynamicSentences() {
     setInterval(() => {
         dynamicTheme.textContent = roadmapThemes[roadmapIndex].text;
         dynamicTheme.style.color = roadmapThemes[roadmapIndex].color;
-        dynamicTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)"; // Adding drop shadow
+        dynamicTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
         roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
     }, 2000);
 
     setInterval(() => {
         dynamicServiceTheme.textContent = roadmapThemes[serviceThemeIndex].text;
         dynamicServiceTheme.style.color = roadmapThemes[serviceThemeIndex].color;
-        dynamicServiceTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)"; // Adding drop shadow
+        dynamicServiceTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
         serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
     }, 2000);
 
     setInterval(() => {
         dynamicFaqTheme.textContent = roadmapThemes[serviceThemeIndex].text;
         dynamicFaqTheme.style.color = roadmapThemes[serviceThemeIndex].color;
-        dynamicFaqTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)"; // Adding drop shadow
+        dynamicFaqTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
         serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
     }, 2000);
 }
