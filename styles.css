@@ -323,6 +323,7 @@ footer {
 
     .footer-section {
         text-align: center;
+        width: 100%;
     }
 
     .footer-section ul {
