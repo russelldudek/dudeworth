@@ -374,7 +374,8 @@ footer {
 }
 
 #contact-form button[type="submit"]:hover {
-    background-color: #005bb5;
+    background-color: var(--neon-color);
+    color: var(--complementary-color);
 }
 
 @media (max-width: 768px) {
