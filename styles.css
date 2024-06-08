@@ -233,6 +233,7 @@ footer {
 
 .footer-section.logo-section {
     text-align: center;
+    justify-content: center; /* Center vertically */
     width: 34%;
 }
 
