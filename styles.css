@@ -208,8 +208,8 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     margin-bottom: 20px;
     max-width: 1000px;
@@ -223,19 +223,21 @@ footer {
     min-width: 200px;
 }
 
+.footer-section.about {
+    text-align: left;
+}
+
 .footer-section.links {
-    text-align: center;
+    text-align: right;
 }
 
 .footer-section ul {
-    display: flex;
-    justify-content: center;
     list-style: none;
     padding: 0;
 }
 
 .footer-section ul li {
-    margin: 0 10px;
+    margin: 10px 0;
 }
 
 .footer-section ul li a {
