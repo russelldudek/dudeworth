@@ -254,16 +254,12 @@ function setupTermsToggle() {
     termsLink.addEventListener('click', function (e) {
         e.preventDefault();
         termsSection.classList.toggle('hidden');
-        if (termsSection.classList.contains('hidden')) {
-            termsSection.style.transform = 'translateY(100%)';
-        } else {
-            termsSection.style.transform = 'translateY(0)';
-        }
+        termsSection.classList.toggle('open');
     });
 
     closeTermsButton.addEventListener('click', function () {
         termsSection.classList.add('hidden');
-        termsSection.style.transform = 'translateY(100%)';
+        termsSection.classList.remove('open');
     });
 }
 
