@@ -234,7 +234,9 @@ footer {
 .footer-section.logo-section {
     text-align: center;
     justify-content: center; /* Center vertically */
+    align-items: center;
     width: 34%;
+    display: flex;
 }
 
 .footer-section.links {
