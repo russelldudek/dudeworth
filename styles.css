@@ -318,6 +318,14 @@ footer {
 .form-group {
     margin-bottom: 20px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
 }
 
 .form-group input, .form-group select, .form-group textarea {
@@ -342,13 +350,20 @@ footer {
     min-height: 150px;
 }
 
+#contact-form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
 #contact-form button[type="submit"] {
-    background-color: #0066cc;
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
+    width: 100%;
+    padding: 15px;
     font-size: 18px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
