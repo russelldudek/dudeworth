@@ -254,7 +254,7 @@ footer {
 
 .footer-logo {
     margin-bottom: 10px;
-    width: 150px;
+    width: 105px; /* 30% reduction from 150px */
 }
 
 .footer-bottom {
