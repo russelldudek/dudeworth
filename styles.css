@@ -222,7 +222,8 @@ footer {
     padding: 10px;
     min-width: 200px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
 }
 
 .footer-section.about {
@@ -282,7 +283,7 @@ footer {
 }
 
 .terms-container.open {
-    max-height: 85%;
+    max-height: 87%;
 }
 
 #terms h2 {
