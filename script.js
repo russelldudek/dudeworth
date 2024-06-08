@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupDynamicSentences();
     setupButtonHoverEffect();
     setupTermsToggle();
-    setupGetStartedButton();
 });
 
 function toggleMenu() {
@@ -278,17 +277,6 @@ function setupTermsToggle() {
     closeTermsButton.addEventListener('click', function () {
         termsSection.classList.add('hidden');
         termsSection.classList.remove('open');
-    });
-}
-
-function setupGetStartedButton() {
-    console.log("Setting up Get Started button...");
-    const getStartedButton = document.getElementById('get-started-button');
-    const aboutSection = document.getElementById('about');
-    
-    getStartedButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        aboutSection.scrollIntoView({ behavior: 'smooth' });
     });
 }
 
