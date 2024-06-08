@@ -421,3 +421,10 @@ footer {
     }
 }
 
+/* Add margin to paragraphs and headings within sections */
+.section-container p,
+.section-container h2,
+.section-container h3 {
+    margin-bottom: 20px; /* Adjust this value as needed */
+}
+
