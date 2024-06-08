@@ -315,6 +315,10 @@ footer {
     margin-right: auto;
 }
 
+.section-padding-top {
+    padding-top: 20px; /* Adjust the value as needed */
+}
+
 #contact-form {
     background: rgba(255, 255, 255, 0.95);
     padding: 30px;
