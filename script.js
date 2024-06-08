@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupDynamicSentences();
     setupButtonHoverEffect();
     setupTermsToggle();
+    setupGetStartedButton();
 });
 
 function toggleMenu() {
@@ -142,10 +143,12 @@ function setupToggleButtons() {
 
     faqButton.addEventListener('click', () => {
         faqContent.classList.toggle('hidden');
+        faqButton.textContent = faqContent.classList.contains('hidden') ? 'Show Q&A' : 'Hide Q&A';
     });
 
     contactButton.addEventListener('click', () => {
         contactForm.classList.toggle('hidden');
+        contactButton.textContent = contactForm.classList.contains('hidden') ? 'Show Contact Form' : 'Hide Contact Form';
     });
 
     document.addEventListener('click', function(event) {
@@ -275,6 +278,17 @@ function setupTermsToggle() {
     closeTermsButton.addEventListener('click', function () {
         termsSection.classList.add('hidden');
         termsSection.classList.remove('open');
+    });
+}
+
+function setupGetStartedButton() {
+    console.log("Setting up Get Started button...");
+    const getStartedButton = document.getElementById('get-started-button');
+    const aboutSection = document.getElementById('about');
+    
+    getStartedButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        aboutSection.scrollIntoView({ behavior: 'smooth' });
     });
 }
 
