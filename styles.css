@@ -209,7 +209,7 @@ footer {
 .footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Center vertically */
+    align-items: flex-start;
     flex-wrap: wrap;
     margin-bottom: 20px;
     max-width: 1000px;
@@ -225,25 +225,16 @@ footer {
 
 .footer-section.about {
     text-align: left;
-    display: flex;
-    align-items: center; /* Center vertically */
-    justify-content: flex-start;
     width: 33%;
 }
 
 .footer-section.logo-section {
     text-align: center;
-    display: flex;
-    align-items: center; /* Center vertically */
-    justify-content: center;
     width: 34%;
 }
 
 .footer-section.links {
     text-align: right;
-    display: flex;
-    align-items: center; /* Center vertically */
-    justify-content: flex-end;
     width: 33%;
 }
 
@@ -289,7 +280,35 @@ footer {
 }
 
 .terms-container.open {
-    max-height: calc(30vh - 60px); /* Adjust based on the footer and padding size */
+    max-height: 100%; /* Set to match the footer height */
+}
+
+#terms h2 {
+    margin-top: 0;
+}
+
+.close-terms-button {
+    background: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.section-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    margin: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 }
 
 #terms h2 {
