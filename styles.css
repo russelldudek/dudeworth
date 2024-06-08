@@ -208,7 +208,7 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
     margin-bottom: 20px;
@@ -225,10 +225,17 @@ footer {
 
 .footer-section.about {
     text-align: left;
+    width: 33%;
+}
+
+.footer-section.logo-section {
+    text-align: center;
+    width: 34%;
 }
 
 .footer-section.links {
     text-align: right;
+    width: 33%;
 }
 
 .footer-section ul {
