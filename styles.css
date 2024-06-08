@@ -289,7 +289,7 @@ footer {
 }
 
 .terms-container.open {
-    max-height: calc(100vh - 100px); /* Adjust based on the footer and padding size */
+    max-height: calc(30vh - 60px); /* Adjust based on the footer and padding size */
 }
 
 #terms h2 {
