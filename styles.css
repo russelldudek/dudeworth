@@ -330,6 +330,11 @@ footer {
         padding: 0;
     }
 
+    .footer-section ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
     .footer-section.logo-section {
         order: 2;
     }
@@ -341,11 +346,6 @@ footer {
     .footer-section.about {
         order: 3;
         text-align: center;
-    }
-
-    .footer-section ul li {
-        display: inline-block;
-        margin: 0 10px;
     }
 
     .footer-section ul li a {
