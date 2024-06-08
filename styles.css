@@ -318,3 +318,11 @@ footer {
     margin-right: auto;
 }
 
+.section-container p {
+    margin-bottom: 20px; /* Standardize padding below paragraphs */
+}
+
+.section-container .cta-button {
+    margin-top: 20px; /* Ensure space between paragraph and button */
+}
+
