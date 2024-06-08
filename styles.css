@@ -1,114 +1,302 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DudeWorth | AI Automation</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
-    <script defer src="script.js"></script>
-</head>
-<body>
-    <header>
-        <img src="images/logo.svg" alt="DudeWorth Logo" class="logo">
-        <nav id="main-nav">
-            <a href="#hero" class="scroll-to">Home</a>
-            <a href="#about" class="scroll-to">About</a>
-            <a href="#services" class="scroll-to">Services</a>
-            <a href="#introduction" class="scroll-to">AI Roadmap</a>
-            <a href="#faq" class="scroll-to">AI FAQ</a>
-            <a href="#cta" class="scroll-to">Contact</a>
-        </nav>
-        <div id="hamburger-menu" onclick="toggleMenu()">☰</div>
-    </header>
-    <section id="hero">
-        <div class="hero-content">
-            <div class="rethink-container">
-                <h1 class="rethink-text">re:Think</h1>
-            </div>
-            <h2 id="dynamic-keyword">Business</h2>
-            <p>Transformed via AI Automation</p>
-            <a href="#cta" class="cta-button scroll-to">Get Started</a>
-        </div>
-    </section>
-    <div class="section-container">
-        <section id="about">
-            <h2>Why DudeWorth?</h2>
-            <div id="about-content"></div>
-        </section>
-    </div>
-    <div class="section-container">
-        <section id="services">
-            <h2>Service Tiers</h2>
-            <div id="services-content"></div>
-        </section>
-    </div>
-    <div class="section-container">
-        <section id="introduction">
-            <h2>Our AI Automation Process</h2>
-            <div id="roadmap-content"></div>
-        </section>
-    </div>
-    <div class="section-container">
-        <section id="faq">
-            <h2>AI FAQ</h2>
-            <div id="faq-intro"></div>
-            <button id="toggle-faq" class="cta-button">Show All</button>
-            <div id="faq-content" class="hidden"></div>
-        </section>
-    </div>
-    <div class="section-container">
-        <section id="cta">
-            <h2 id="contact-title"></h2>
-            <p id="contact-body"></p>
-            <button id="toggle-contact" class="cta-button">Show Contact Form</button>
-            <form id="contact-form" class="hidden">
-                <input type="text" name="firstName" placeholder="First Name" required>
-                <input type="text" name="lastName" placeholder="Last Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <select name="budget" required>
-                    <option value="" disabled selected>Select Your Budget</option>
-                    <option value="0-1000">$0 - $1,000</option>
-                    <option value="1000-5000">$1,000 - $5,000</option>
-                    <option value="5000-10000">$5,000 - $10,000</option>
-                    <option value="10000+">$10,000+</option>
-                </select>
-                <select name="timeframe" required>
-                    <option value="" disabled selected>Select Time Frame</option>
-                    <option value="1-3 months">1 - 3 months</option>
-                    <option value="3-6 months">3 - 6 months</option>
-                    <option value="6-12 months">6 - 12 months</option>
-                    <option value="12+ months">12+ months</option>
-                </select>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="cta-button">Submit</button>
-            </form>
-        </section>
-    </div>
-    <footer>
-        <div class="footer-content">
-            <img src="images/logo_white.svg" alt="DudeWorth Logo" class="footer-logo">
-            <p>DudeWorth is an AI automation advisory firm dedicated to helping businesses transform through innovative AI solutions.</p>
-            <div class="footer-links">
-                <a href="#hero" class="scroll-to">Home</a>
-                <a href="#about" class="scroll-to">About</a>
-                <a href="#services" class="scroll-to">Services</a>
-                <a href="#introduction" class="scroll-to">AI Roadmap</a>
-                <a href="#faq" class="scroll-to">AI FAQ</a>
-                <a href="#cta" class="scroll-to">Contact</a>
-                <a href="#terms" id="terms-link">Terms and Conditions</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2024 DudeWorth. All rights reserved.
-        </div>
-        <div id="terms" class="terms-container hidden">
-            <h2>Terms and Conditions</h2>
-            <div id="terms-content"></div>
-            <button id="close-terms" class="close-terms-button">Close</button>
-        </div>
-    </footer>
-</body>
-</html>
+body {
+    font-family: 'Source Code Pro', monospace;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: linear-gradient(to right, #0066cc, #00cc66);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    margin: 5px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 48px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#main-nav {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    #main-nav {
+        display: none;
+        flex-direction: column;
+    }
+    #hamburger-menu {
+        display: block;
+    }
+    #main-nav.show {
+        display: flex;
+    }
+}
+
+#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5in;
+    background: linear-gradient(to right, #0066cc, #00cc66);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    padding: 20px;
+    margin-top: -50px;
+}
+
+.rethink-container {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.rethink-text {
+    margin: 0;
+    font-size: 48px;
+    background: linear-gradient(to right, #0066cc, #00cc66);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 24px;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--neon-color);
+    color: var(--complementary-color);
+}
+
+.hidden {
+    display: none;
+}
+
+#dynamic-theme, #dynamic-service-theme, #dynamic-faq-theme {
+    font-size: 24px;
+    color: #FFA500;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.collapsible-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px; /* Added more margin to increase whitespace */
+}
+
+.collapsible-card h3 {
+    margin-top: 0;
+    font-size: 24px;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.collapsible-card .content {
+    display: none;
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.collapsible {
+    cursor: pointer;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.collapsible.active, .collapsible:hover {
+    background-color: #ccc;
+}
+
+.collapsible + .content {
+    display: none;
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #ccc;
+    border-top: none;
+    text-align: left;
+}
+
+.collapsible.active + .content {
+    display: block;
+}
+
+.arrow {
+    font-size: 24px;
+    color: #0066cc;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 10px;
+    min-width: 200px;
+}
+
+.footer-section.links {
+    text-align: center;
+}
+
+.footer-section ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 0 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-logo {
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #fff;
+    padding-top: 10px;
+    font-size: 14px;
+    position: relative;
+}
+
+.terms-container {
+    background: #333;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    border-top: 1px solid #fff;
+    transition: max-height 0.3s ease;
+    text-align: left;
+    overflow-y: auto;
+    max-height: 0;
+}
+
+.terms-container.open {
+    max-height: 60%;
+}
+
+#terms h2 {
+    margin-top: 0;
+}
+
+.close-terms-button {
+    background: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.section-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    margin: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
