@@ -148,7 +148,7 @@ nav a {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px; /* Added more margin to increase whitespace */
+    margin-bottom: 20px;
 }
 
 .collapsible-card h3 {
@@ -223,7 +223,7 @@ footer {
     min-width: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
+    justify-content: center;
 }
 
 .footer-section.about {
@@ -233,7 +233,7 @@ footer {
 
 .footer-section.logo-section {
     text-align: center;
-    justify-content: center; /* Center vertically */
+    justify-content: center;
     align-items: center;
     width: 34%;
     display: flex;
@@ -260,7 +260,7 @@ footer {
 
 .footer-logo {
     margin-bottom: 10px;
-    width: 105px; /* 30% reduction from 150px */
+    width: 105px;
 }
 
 .footer-bottom {
@@ -315,6 +315,15 @@ footer {
     margin-right: auto;
 }
 
+#contact-form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
 .form-group {
     margin-bottom: 20px;
     position: relative;
@@ -350,22 +359,18 @@ footer {
     min-height: 150px;
 }
 
-#contact-form {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    margin: 20px auto;
-}
-
 #contact-form button[type="submit"] {
-    width: 100%;
+    background-color: #333;
+    color: #fff;
     padding: 15px;
     font-size: 18px;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
 }
 
 #contact-form button[type="submit"]:hover {
