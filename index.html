@@ -1,76 +1,118 @@
-<div class="base-container">
-    <section id="about">
-        <h2>About Us</h2>
-        <div id="about-content"></div>
-    </section>
-</div>
-
-<div class="base-container">
-    <section id="services">
-        <h2>Our Services</h2>
-        <div id="services-content"></div>
-    </section>
-</div>
-
-<div class="base-container">
-    <section id="roadmap">
-        <h2>AI Roadmap</h2>
-        <div id="roadmap-content"></div>
-    </section>
-</div>
-
-<div class="base-container">
-    <section id="faq">
-        <h2>AI FAQ</h2>
-        <div id="faq-intro"></div>
-        <div id="faq-content"></div>
-    </section>
-</div>
-
-<div class="contact-section">
-    <section id="cta">
-        <h2 id="contact-title"></h2>
-        <p id="contact-body"></p>
-        <button id="toggle-contact" class="cta-button">Show Contact Form</button>
-        <form id="contact-form" class="hidden">
-            <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DudeWorth | AI Automation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <img src="images/logo.svg" alt="DudeWorth Logo" class="logo">
+        <nav id="main-nav">
+            <a href="#hero" class="scroll-to">Home</a>
+            <a href="#about" class="scroll-to">About</a>
+            <a href="#services" class="scroll-to">Services</a>
+            <a href="#introduction" class="scroll-to">AI Roadmap</a>
+            <a href="#faq" class="scroll-to">AI FAQ</a>
+            <a href="#cta" class="scroll-to">Contact</a>
+        </nav>
+        <div id="hamburger-menu" onclick="toggleMenu()">☰</div>
+    </header>
+    <section id="hero">
+        <div class="hero-content">
+            <div class="rethink-container">
+                <h1 class="rethink-text">re:Think</h1>
             </div>
-            <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="budget">Select Your Budget</label>
-                <select id="budget" name="budget" required>
+            <h2 id="dynamic-keyword">Business</h2>
+            <p>Transformed via AI Automation</p>
+            <a href="#cta" class="cta-button scroll-to">Get Started</a>
+        </div>
+    </section>
+    <div class="section-container">
+        <section id="about">
+            <h2>Why DudeWorth?</h2>
+            <div id="about-content"></div>
+        </section>
+    </div>
+    <div class="section-container">
+        <section id="services">
+            <h2>Service Tiers</h2>
+            <div id="services-content"></div>
+        </section>
+    </div>
+    <div class="section-container">
+        <section id="introduction">
+            <h2>Our AI Automation Process</h2>
+            <div id="roadmap-content"></div>
+        </section>
+    </div>
+    <div class="section-container">
+        <section id="faq">
+            <h2>AI FAQ</h2>
+            <div id="faq-intro"></div>
+            <button id="toggle-faq" class="cta-button">Show All</button>
+            <div id="faq-content" class="hidden"></div>
+        </section>
+    </div>
+    <div class="section-container">
+        <section id="cta">
+            <h2 id="contact-title"></h2>
+            <p id="contact-body"></p>
+            <button id="toggle-contact" class="cta-button">Show Contact Form</button>
+            <form id="contact-form" class="hidden">
+                <input type="text" name="firstName" placeholder="First Name" required>
+                <input type="text" name="lastName" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <select name="budget" required>
                     <option value="" disabled selected>Select Your Budget</option>
                     <option value="0-1000">$0 - $1,000</option>
                     <option value="1000-5000">$1,000 - $5,000</option>
                     <option value="5000-10000">$5,000 - $10,000</option>
                     <option value="10000+">$10,000+</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="timeframe">Select Time Frame</label>
-                <select id="timeframe" name="timeframe" required>
+                <select name="timeframe" required>
                     <option value="" disabled selected>Select Time Frame</option>
                     <option value="1-3 months">1 - 3 months</option>
                     <option value="3-6 months">3 - 6 months</option>
                     <option value="6-12 months">6 - 12 months</option>
                     <option value="12+ months">12+ months</option>
                 </select>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <p>DudeWorth is an AI automation advisory firm dedicated to helping businesses transform through innovative AI solutions.</p>
             </div>
-            <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" required></textarea>
+            <div class="footer-section logo-section">
+                <img src="images/logo_white.svg" alt="DudeWorth Logo" class="footer-logo">
             </div>
-            <button type="submit" class="cta-button">Submit</button>
-        </form>
-    </section>
-</div>
+            <div class="footer-section links">
+                <ul class="footer-links">
+                    <li><a href="#hero" class="scroll-to">Home</a></li>
+                    <li><a href="#about" class="scroll-to">About</a></li>
+                    <li><a href="#services" class="scroll-to">Services</a></li>
+                    <li><a href="#introduction" class="scroll-to">AI Roadmap</a></li>
+                    <li><a href="#terms" id="terms-link">Terms and Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 DudeWorth, LLC. All rights reserved.
+        </div>
+        <div id="terms" class="terms-container hidden">
+            <h2>Terms and Conditions</h2>
+            <div id="terms-content"></div>
+            <button id="close-terms" class="close-terms-button">Close</button>
+        </div>
+    </footer>
+</body>
+</html>
 
