@@ -158,7 +158,7 @@ function setupToggleButtons() {
 
 function setupSmoothScroll() {
     console.log("Setting up smooth scroll...");
-    const headerOffset = document.querySelector('header').offsetHeight + 20; // Add extra offset
+    const headerOffset = document.querySelector('header').offsetHeight + 100; // Add extra offset
 
     document.querySelectorAll('.scroll-to').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
