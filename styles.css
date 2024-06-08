@@ -315,3 +315,41 @@ footer {
     margin-right: auto;
 }
 
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-section ul {
+        text-align: center;
+        padding: 0;
+    }
+
+    .footer-section.logo-section {
+        order: 2;
+    }
+
+    .footer-section.links {
+        order: 1;
+    }
+
+    .footer-section.about {
+        order: 3;
+        text-align: center;
+    }
+
+    .footer-section ul li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    .footer-section ul li a {
+        text-decoration: none;
+    }
+}
+

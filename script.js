@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupTermsToggle();
 });
 
+function toggleMenu() {
+    const mainNav = document.getElementById('main-nav');
+    mainNav.classList.toggle('show');
+}
+
 async function loadContent() {
     try {
         console.log("Fetching content...");
@@ -262,3 +267,4 @@ function setupTermsToggle() {
         termsSection.classList.remove('open');
     });
 }
+
