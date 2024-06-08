@@ -1,3 +1,113 @@
+body {
+    font-family: 'Source Code Pro', monospace;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: linear-gradient(to right, #0066cc, #00cc66);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    margin: 5px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 48px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#main-nav {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    #main-nav {
+        display: none;
+        flex-direction: column;
+    }
+    #hamburger-menu {
+        display: block;
+    }
+    #main-nav.show {
+        display: flex;
+    }
+}
+
+#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5in;
+    background: linear-gradient(to right, #0066cc, #00cc66);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    padding: 20px;
+    margin-top: -50px;
+}
+
+.rethink-container {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.rethink-text {
+    margin: 0;
+    font-size: 48px;
+    background: linear-gradient(to right, #0066cc, #00cc66);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 
 .hero-content p {
     font-size: 24px;
@@ -205,10 +315,6 @@ footer {
     margin-right: auto;
 }
 
-.section-padding-top {
-    padding-top: 20px; /* Adjust the value as needed */
-}
-
 #contact-form {
     background: rgba(255, 255, 255, 0.95);
     padding: 30px;
@@ -309,12 +415,5 @@ footer {
     .footer-section ul li a {
         text-decoration: none;
     }
-}
-
-/* Add margin to paragraphs and headings within sections */
-.section-container p,
-.section-container h2,
-.section-container h3 {
-    margin-bottom: 20px; /* Adjust this value as needed */
 }
 
