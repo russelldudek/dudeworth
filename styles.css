@@ -209,7 +209,7 @@ footer {
 .footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center; /* Center vertically */
     flex-wrap: wrap;
     margin-bottom: 20px;
     max-width: 1000px;
@@ -225,16 +225,25 @@ footer {
 
 .footer-section.about {
     text-align: left;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: flex-start;
     width: 33%;
 }
 
 .footer-section.logo-section {
     text-align: center;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center;
     width: 34%;
 }
 
 .footer-section.links {
     text-align: right;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: flex-end;
     width: 33%;
 }
 
@@ -280,7 +289,7 @@ footer {
 }
 
 .terms-container.open {
-    max-height: 100%; /* Set to match the footer height */
+    max-height: calc(100vh - 60px); /* Adjust based on the footer and padding size */
 }
 
 #terms h2 {
