@@ -280,7 +280,7 @@ footer {
 }
 
 .terms-container.open {
-    max-height: 100%; /* Set to match the footer height */
+    max-height: calc(100vh - 60px); /* Adjust based on the footer and padding size */
 }
 
 #terms h2 {
