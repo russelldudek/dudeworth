@@ -13,11 +13,9 @@ exports.handler = async (event, context) => {
 
     let data;
     try {
-        // Check if content type is JSON
         if (event.headers['content-type'] === 'application/json') {
             data = JSON.parse(event.body);
         } else {
-            // If content type is form-urlencoded
             const params = new URLSearchParams(event.body);
             data = Object.fromEntries(params);
         }
@@ -83,13 +81,33 @@ Your Friendly AI at DudeWorth
         
         return {
             statusCode: 200,
-            body: JSON.stringify({ message: 'Email sent successfully!' }),
+            headers: {
+                'Content-Type': 'text/html',
+            },
+            body: `<html><body>
+                   <p>Thank you, human! Your message has been successfully sent through our neural networks. We’ll reply soon!</p>
+                   <script>
+                     setTimeout(function() {
+                       window.location.href = 'https://dudeworth.com';
+                     }, 5000);
+                   </script>
+                   </body></html>`,
         };
     } catch (error) {
         console.error('Error sending email:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: 'Failed to send email' }),
+            headers: {
+                'Content-Type': 'text/html',
+            },
+            body: `<html><body>
+                   <p>Oops! Our circuits got tangled. Please try sending your message again.</p>
+                   <script>
+                     setTimeout(function() {
+                       window.location.href = 'https://dudeworth.com';
+                     }, 5000);
+                   </script>
+                   </body></html>`,
         };
     }
 };
