@@ -63,6 +63,81 @@
             <h2 id="contact-title"></h2>
             <p id="contact-body"></p>
             <button id="toggle-contact" class="cta-button">Show Contact Form</button>
+            <form id="contact-form" class="hidden" action="/.netlify/functions/send-email" method="POST">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Select Your Budget</label>
+                    <select id="budget" name="budget" required>
+                        <option value="" disabled selected>---</option>
+                        <option value="0-1000">$0 - $1,000</option>
+                        <option value="1000-5000">$1,000 - $5,000</option>
+                        <option value="5000-10000">$5,000 - $10,000</option>
+                        <option value="10000+">$10,000+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="timeframe">Select Time Frame</label>
+                    <select id="timeframe" name="timeframe" required>
+                        <option value="" disabled selected>---</option>
+                        <option value="1-3 months">1 - 3 months</option>
+                        <option value="3-6 months">3 - 6 months</option>
+                        <option value="6-12 months">6 - 12 months</option>
+                        <option value="12+ months">12+ months</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="What's your AI dream project? Let's make it real!" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <p>DudeWorth is an AI automation advisory firm dedicated to helping businesses transform through innovative AI solutions.</p>
+            </div>
+            <div class="footer-section logo-section">
+                <img src="images/logo_white.svg" alt="DudeWorth Logo" class="footer-logo">
+            </div>
+            <div class="footer-section links">
+                <ul class="footer-links">
+                    <li><a href="#hero" class="scroll-to">Home</a></li>
+                    <li><a href="#about" class="scroll-to">About</a></li>
+                    <li><a href="#services" class="scroll-to">Services</a></li>
+                    <li><a href="#introduction" class="scroll-to">AI Roadmap</a></li>
+                    <li><a href="#faq" class="scroll-to">AI FAQ</a></li>
+                    <li><a href="#cta" class="scroll-to">Contact</a></li>
+                    <li><a href="#terms" id="terms-link">Terms and Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 DudeWorth, LLC. All rights reserved.
+        </div>
+        <div id="terms" class="terms-container hidden">
+            <h2>Terms and Conditions</h2>
+            <div id="terms-content"></div>
+            <button id="close-terms" class="close-terms-button">Close</button>
+        </div>
+    </footer>
+</body>
+</html>
+      <h2 id="contact-title"></h2>
+            <p id="contact-body"></p>
+            <button id="toggle-contact" class="cta-button">Show Contact Form</button>
             <form id="contact-form" class="hidden" action="https://main--phenomenal-kulfi-ee6144.netlify.app/.netlify/functions/send-email" method="POST">
                 <div class="form-group">
                     <label for="firstName">First Name</label>
