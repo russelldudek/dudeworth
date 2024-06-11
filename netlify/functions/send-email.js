@@ -2,7 +2,11 @@ require('dotenv').config();
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event, context) => {
+    console.log('Event received:', event);
+
     const { firstName, lastName, email, budget, timeframe, message } = JSON.parse(event.body);
+
+    console.log('Parsed form data:', { firstName, lastName, email, budget, timeframe, message });
 
     let transporter = nodemailer.createTransport({
         service: 'Gmail',
@@ -48,7 +52,10 @@ Your Friendly AI at DudeWorth
     };
 
     try {
+        console.log('Attempting to send email...');
+        // Send the email
         await transporter.sendMail(mailOptions);
+        console.log('Email sent successfully');
         return {
             statusCode: 200,
             body: JSON.stringify({ message: 'Email sent successfully!' })
@@ -61,3 +68,4 @@ Your Friendly AI at DudeWorth
         };
     }
 };
+
