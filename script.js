@@ -186,32 +186,20 @@ function setupDynamicKeywords(heroData) {
             dynamicKeywordElement.textContent = dynamicKeywords[heroIndex].text;
             dynamicKeywordElement.style.color = dynamicKeywords[heroIndex].color;
             dynamicKeywordElement.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
-            console.log(`Changed keyword to: ${dynamicKeywords[heroIndex].text} with color ${dynamicKeywords[heroIndex].color}`);
             heroIndex = (heroIndex + 1) % dynamicKeywords.length;
-        } else {
-            console.error("No keywords available to display.");
         }
     }, 2000);
-}
 
-function setupDynamicSentences() {
-    console.log("Setting up dynamic sentences...");
+    const dynamicServiceTheme = document.getElementById('dynamic-service-theme');
+    const dynamicFaqTheme = document.getElementById('dynamic-faq-theme');
     const roadmapThemes = [
-        { text: "Innovation", color: "#FF7F00" },
-        { text: "Growth", color: "#00FFFF" },
-        { text: "Resilience", color: "#FF1493" }
+        { text: "Efficiency", color: "red" },
+        { text: "Innovation", color: "blue" },
+        { text: "Optimization", color: "green" },
+        { text: "Automation", color: "orange" },
+        { text: "Excellence", color: "purple" }
     ];
-    let roadmapIndex = 0;
     let serviceThemeIndex = 0;
-    const dynamicTheme = document.getElementById("dynamic-theme");
-    const dynamicServiceTheme = document.getElementById("dynamic-service-theme");
-    const dynamicFaqTheme = document.getElementById("dynamic-faq-theme");
-    setInterval(() => {
-        dynamicTheme.textContent = roadmapThemes[roadmapIndex].text;
-        dynamicTheme.style.color = roadmapThemes[roadmapIndex].color;
-        dynamicTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
-        roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
-    }, 2000);
     setInterval(() => {
         dynamicServiceTheme.textContent = roadmapThemes[serviceThemeIndex].text;
         dynamicServiceTheme.style.color = roadmapThemes[serviceThemeIndex].color;
@@ -284,7 +272,7 @@ function setupContactForm() {
             const result = await response.json();
             const messageBox = document.getElementById('form-message');
             if (response.ok) {
-                messageBox.innerHTML = "Thank you, human! Your message has been successfully sent through our neural networks. We’ll reply soon!";
+                messageBox.innerHTML = result.message;
                 messageBox.style.color = "green";
                 contactForm.reset(); // Clear the form
                 setTimeout(() => {
