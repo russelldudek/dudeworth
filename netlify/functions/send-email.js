@@ -82,13 +82,13 @@ Your Friendly AI at DudeWorth
         return {
             statusCode: 200,
             headers: {
-                'Content-Type': 'text/html',
+                'Content-Type': 'text/html; charset=UTF-8',
             },
             body: `<html><body>
                    <p>Thank you, human! Your message has been successfully sent through our neural networks. We’ll reply soon!</p>
                    <script>
                      setTimeout(function() {
-                       window.location.href = 'https://dudeworth.com';
+                       window.location.href = 'https://russelldudek.github.io/dudeworth/index.html';
                      }, 5000);
                    </script>
                    </body></html>`,
@@ -98,7 +98,7 @@ Your Friendly AI at DudeWorth
         return {
             statusCode: 500,
             headers: {
-                'Content-Type': 'text/html',
+                'Content-Type': 'text/html; charset=UTF-8',
             },
             body: `<html><body>
                    <p>Oops! Our circuits got tangled. Please try sending your message again.</p>
