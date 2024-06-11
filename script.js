@@ -272,7 +272,7 @@ function setupContactForm() {
             const result = await response.json();
             const messageBox = document.getElementById('form-message');
             if (response.ok) {
-                messageBox.innerHTML = result.message;
+                messageBox.innerHTML = "Thank you, human! Your message has been successfully sent through our neural networks. We’ll reply soon!";
                 messageBox.style.color = "green";
                 contactForm.reset(); // Clear the form
                 setTimeout(() => {
