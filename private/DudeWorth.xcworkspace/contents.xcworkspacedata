@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:.."
+      name = "..">
+      <Group
+         location = "group:admin"
+         name = "admin">
+      </Group>
+      <Group
+         location = "group:netlify"
+         name = "netlify">
+         <Group
+            location = "group:functions"
+            name = "functions">
+            <FileRef
+               location = "group:send-email.js">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:public"
+         name = "public">
+         <FileRef
+            location = "group:faq.json">
+         </FileRef>
+         <FileRef
+            location = "group:index.html">
+         </FileRef>
+         <FileRef
+            location = "group:roadmap.json">
+         </FileRef>
+         <FileRef
+            location = "group:services.json">
+         </FileRef>
+         <FileRef
+            location = "group:styles.css">
+         </FileRef>
+         <Group
+            location = "group:images"
+            name = "images">
+            <FileRef
+               location = "group:svg.html">
+            </FileRef>
+            <FileRef
+               location = "group:logo.png">
+            </FileRef>
+            <FileRef
+               location = "group:logo_white.svg">
+            </FileRef>
+            <FileRef
+               location = "group:logo.svg">
+            </FileRef>
+            <FileRef
+               location = "group:favicon.svg">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:netlify.toml.txt">
+         </FileRef>
+         <FileRef
+            location = "group:script.js">
+         </FileRef>
+         <FileRef
+            location = "group:terms.json">
+         </FileRef>
+         <FileRef
+            location = "group:sitemap.xml">
+         </FileRef>
+         <FileRef
+            location = "group:contact.json">
+         </FileRef>
+         <FileRef
+            location = "group:about.json">
+         </FileRef>
+         <FileRef
+            location = "group:robot.txt">
+         </FileRef>
+         <FileRef
+            location = "group:hero.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:private"
+         name = "private">
+         <FileRef
+            location = "group:DudeWorth.xcworkspace">
+         </FileRef>
+      </Group>
+   </Group>
+</Workspace>
