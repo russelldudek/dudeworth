@@ -1,0 +1,9 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+  command = "" # leave empty if no build command is needed
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
