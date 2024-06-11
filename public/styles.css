@@ -1,0 +1,457 @@
+/* General collapsible-section styles */
+.collapsible-section {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+/* Add top margin to the first collapsible card in each section for better spacing */
+.first-collapsible {
+    margin-top: 20px;
+}
+
+/* Ensure paragraphs have consistent bottom margins */
+p {
+    margin-bottom: 20px;
+}
+
+/* Add specific styling for the FAQ button */
+#toggle-faq {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Specific sections styling */
+#about, #services, #introduction, #faq, #cta {
+    padding-top: 20px;
+}
+
+/* Existing styles */
+body {
+    font-family: 'Source Code Pro', monospace;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: linear-gradient(to right, #0066cc, #00cc66);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    margin: 5px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 48px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#main-nav {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    #main-nav {
+        display: none;
+        flex-direction: column;
+    }
+    #hamburger-menu {
+        display: block;
+    }
+    #main-nav.show {
+        display: flex;
+    }
+}
+
+#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5in;
+    background: linear-gradient(to right, #0066cc, #00cc66);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    padding: 20px;
+    margin-top: -50px;
+}
+
+.rethink-container {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.rethink-text {
+    margin: 0;
+    font-size: 48px;
+    background: linear-gradient(to right, #0066cc, #00cc66);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 24px;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--neon-color);
+    color: var(--complementary-color);
+}
+
+.hidden {
+    display: none;
+}
+
+#dynamic-theme, #dynamic-service-theme, #dynamic-faq-theme {
+    font-size: 24px;
+    color: #FFA500;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.collapsible-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.collapsible-card h3 {
+    margin-top: 0;
+    font-size: 24px;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.collapsible-card .content {
+    display: none;
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.collapsible {
+    cursor: pointer;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.collapsible.active, .collapsible:hover {
+    background-color: #ccc;
+}
+
+.collapsible + .content {
+    display: none;
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #ccc;
+    border-top: none;
+    text-align: left;
+}
+
+.collapsible.active + .content {
+    display: block;
+}
+
+.arrow {
+    font-size: 24px;
+    color: #0066cc;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 10px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer-section.about {
+    text-align: left;
+    width: 33%;
+}
+
+.footer-section.logo-section {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 34%;
+    display: flex;
+}
+
+.footer-section.links {
+    text-align: right;
+    width: 33%;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-logo {
+    margin-bottom: 10px;
+    width: 105px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #fff;
+    padding-top: 10px;
+    font-size: 14px;
+    position: relative;
+}
+
+.terms-container {
+    background: #333;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    border-top: 1px solid #fff;
+    transition: max-height 0.3s ease;
+    text-align: left;
+    overflow-y: auto;
+    max-height: 0;
+}
+
+.terms-container.open {
+    max-height: 87%;
+}
+
+#terms h2 {
+    margin-top: 0;
+}
+
+.close-terms-button {
+    background: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.section-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    margin: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* General styles for the contact form */
+#contact-form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Specific styles for input fields */
+#contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+#contact-form .form-group:last-child {
+    margin-bottom: 0; /* Remove bottom margin for the message field */
+}
+
+#contact-form .form-group input,
+#contact-form .form-group select,
+#contact-form .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+}
+
+#contact-form .form-group select {
+    padding-right: 30px; /* Additional padding to account for the inherent offset */
+}
+
+#contact-form .form-group input:focus,
+#contact-form .form-group select:focus,
+#contact-form .form-group textarea:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
+    outline: none;
+}
+
+#contact-form .form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+#contact-form button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+}
+
+#contact-form button[type="submit"]:hover {
+    background-color: var(--neon-color);
+    color: var(--complementary-color);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        text-align: center;
+        width: 100%;
+    }
+
+    .footer-section ul {
+        text-align: center;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .footer-section.logo-section {
+        order: 2;
+    }
+
+    .footer-section.links {
+        order: 1;
+    }
+
+    .footer-section.about {
+        order: 3;
+        text-align: center;
+    }
+
+    .footer-section ul li a {
+        text-decoration: none;
+    }
+}
+
