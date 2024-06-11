@@ -58,18 +58,23 @@ async function fetchJSON(url) {
 function updateAboutSection(data) {
     console.log("Updating About section with data:", data);
     const aboutContent = document.getElementById('about-content');
-    aboutContent.innerHTML = data.sections.map(section => `
+    aboutContent.innerHTML = data.introduction + data.sections.map(section => `
         <div class="collapsible-card">
             <h3 class="collapsible" style="color: ${section.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${section.title}</h3>
             <div class="content hidden">${section.content}</div>
         </div>
-    `).join('');
+    `).join('') + `
+        <div class="call-to-action">
+            <h2>${data.callToAction.title}</h2>
+            <p>${data.callToAction.body}</p>
+        </div>
+    `;
 }
 
 function updateServicesSection(data) {
     console.log("Updating Services section with data:", data);
     const servicesContent = document.getElementById('services-content');
-    servicesContent.innerHTML = data.tiers.map(tier => `
+    servicesContent.innerHTML = data.introduction + data.tiers.map(tier => `
         <div class="collapsible-card">
             <h3 class="collapsible" style="color: ${tier.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${tier.title}</h3>
             <div class="content hidden">
@@ -83,7 +88,7 @@ function updateServicesSection(data) {
 function updateRoadmapSection(data) {
     console.log("Updating Roadmap section with data:", data);
     const roadmapContent = document.getElementById('roadmap-content');
-    roadmapContent.innerHTML = data.steps.map(step => `
+    roadmapContent.innerHTML = data.introduction + data.steps.map(step => `
         <div class="collapsible-card">
             <h3 class="collapsible" style="color: ${step.color}; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${step.title}</h3>
             <div class="content hidden">${step.content}</div>
@@ -156,6 +161,7 @@ function setupToggleButtons() {
 function setupSmoothScroll() {
     console.log("Setting up smooth scroll...");
     const headerOffset = document.querySelector('header').offsetHeight + 80; // Add extra offset
+; // Get the header height
 
     document.querySelectorAll('.scroll-to').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
