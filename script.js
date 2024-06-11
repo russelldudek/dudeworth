@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupDynamicSentences();
     setupButtonHoverEffect();
     setupTermsToggle();
-    setupContactForm();
 });
 
 function toggleMenu() {
@@ -162,12 +161,16 @@ function setupToggleButtons() {
 function setupSmoothScroll() {
     console.log("Setting up smooth scroll...");
     const headerOffset = document.querySelector('header').offsetHeight + 80; // Add extra offset
+
     document.querySelectorAll('.scroll-to').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
+
             const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
@@ -181,31 +184,48 @@ function setupDynamicKeywords(heroData) {
     const dynamicKeywords = heroData.keywords;
     const dynamicKeywordElement = document.getElementById('dynamic-keyword');
     let heroIndex = 0;
+
     setInterval(() => {
         if (dynamicKeywords && dynamicKeywords.length > 0) {
             dynamicKeywordElement.textContent = dynamicKeywords[heroIndex].text;
             dynamicKeywordElement.style.color = dynamicKeywords[heroIndex].color;
             dynamicKeywordElement.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
+            console.log(`Changed keyword to: ${dynamicKeywords[heroIndex].text} with color ${dynamicKeywords[heroIndex].color}`);
             heroIndex = (heroIndex + 1) % dynamicKeywords.length;
+        } else {
+            console.error("No keywords available to display.");
         }
     }, 2000);
+}
 
-    const dynamicServiceTheme = document.getElementById('dynamic-service-theme');
-    const dynamicFaqTheme = document.getElementById('dynamic-faq-theme');
+function setupDynamicSentences() {
+    console.log("Setting up dynamic sentences...");
     const roadmapThemes = [
-        { text: "Efficiency", color: "red" },
-        { text: "Innovation", color: "blue" },
-        { text: "Optimization", color: "green" },
-        { text: "Automation", color: "orange" },
-        { text: "Excellence", color: "purple" }
+        { text: "Innovation", color: "#FF7F00" },
+        { text: "Growth", color: "#00FFFF" },
+        { text: "Resilience", color: "#FF1493" }
     ];
+
+    let roadmapIndex = 0;
     let serviceThemeIndex = 0;
+    const dynamicTheme = document.getElementById("dynamic-theme");
+    const dynamicServiceTheme = document.getElementById("dynamic-service-theme");
+    const dynamicFaqTheme = document.getElementById("dynamic-faq-theme");
+
+    setInterval(() => {
+        dynamicTheme.textContent = roadmapThemes[roadmapIndex].text;
+        dynamicTheme.style.color = roadmapThemes[roadmapIndex].color;
+        dynamicTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
+        roadmapIndex = (roadmapIndex + 1) % roadmapThemes.length;
+    }, 2000);
+
     setInterval(() => {
         dynamicServiceTheme.textContent = roadmapThemes[serviceThemeIndex].text;
         dynamicServiceTheme.style.color = roadmapThemes[serviceThemeIndex].color;
         dynamicServiceTheme.style.textShadow = "2px 2px 4px rgba(0, 0, 0, 0.5)";
         serviceThemeIndex = (serviceThemeIndex + 1) % roadmapThemes.length;
     }, 2000);
+
     setInterval(() => {
         dynamicFaqTheme.textContent = roadmapThemes[serviceThemeIndex].text;
         dynamicFaqTheme.style.color = roadmapThemes[serviceThemeIndex].color;
@@ -218,6 +238,7 @@ function setupButtonHoverEffect() {
     const neonColors = [
         'red', 'orange', 'yellow', 'lime', 'green', 'aqua', 'cyan', 'blue', 'indigo', 'deeppink', 'magenta'
     ];
+    
     const complementaryColors = {
         'red': 'cyan',
         'orange': 'blue',
@@ -231,6 +252,7 @@ function setupButtonHoverEffect() {
         'deeppink': 'lime',
         'magenta': 'green'
     };
+
     document.querySelectorAll('.cta-button').forEach(button => {
         button.addEventListener('mouseover', () => {
             const randomColor = neonColors[Math.floor(Math.random() * neonColors.length)];
@@ -244,55 +266,16 @@ function setupTermsToggle() {
     const termsLink = document.getElementById('terms-link');
     const termsSection = document.getElementById('terms');
     const closeTermsButton = document.getElementById('close-terms');
+
     termsLink.addEventListener('click', function (e) {
         e.preventDefault();
         termsSection.classList.toggle('hidden');
         termsSection.classList.toggle('open');
     });
+
     closeTermsButton.addEventListener('click', function () {
         termsSection.classList.add('hidden');
         termsSection.classList.remove('open');
-    });
-}
-
-function setupContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        const formObject = Object.fromEntries(formData.entries());
-
-        try {
-            const response = await fetch('/.netlify/functions/send-email', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formObject),
-            });
-
-            const result = await response.json();
-            const messageBox = document.getElementById('form-message');
-            if (!messageBox) {
-                const newMessageBox = document.createElement('div');
-                newMessageBox.id = 'form-message';
-                contactForm.appendChild(newMessageBox);
-            }
-            if (response.ok) {
-                messageBox.innerHTML = result.message;
-                messageBox.style.color = "green";
-                contactForm.reset(); // Clear the form
-                setTimeout(() => {
-                    window.location.href = 'https://dudeworth.com'; // Redirect to homepage after 5 seconds
-                }, 5000);
-            } else {
-                messageBox.innerHTML = `Error: ${result.message}`;
-                messageBox.style.color = "red";
-            }
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            const messageBox = document.getElementById('form-message');
-            messageBox.innerHTML = `Error: ${error.message}`;
-            messageBox.style.color = "red";
-        }
     });
 }
 
