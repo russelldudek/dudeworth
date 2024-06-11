@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupDynamicSentences();
     setupButtonHoverEffect();
     setupTermsToggle();
+    setupFormSubmission(); // Add this line to setup form submission
 });
 
 function toggleMenu() {
@@ -161,7 +162,6 @@ function setupToggleButtons() {
 function setupSmoothScroll() {
     console.log("Setting up smooth scroll...");
     const headerOffset = document.querySelector('header').offsetHeight + 80; // Add extra offset
-; // Get the header height
 
     document.querySelectorAll('.scroll-to').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -277,6 +277,39 @@ function setupTermsToggle() {
     closeTermsButton.addEventListener('click', function () {
         termsSection.classList.add('hidden');
         termsSection.classList.remove('open');
+    });
+}
+
+// Add this function to handle form submission
+function setupFormSubmission() {
+    const form = document.getElementById('contact-form');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch('/.netlify/functions/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                submitButton.textContent = 'Thank You';
+                form.reset();
+                setTimeout(() => {
+                    submitButton.textContent = 'Submit';
+                }, 5000);
+            } else {
+                console.error('Error submitting form:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+        }
     });
 }
 
