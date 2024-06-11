@@ -88,7 +88,7 @@ Your Friendly AI at DudeWorth
                    <p>Thank you, human! Your message has been successfully sent through our neural networks. We’ll reply soon!</p>
                    <script>
                      setTimeout(function() {
-                       window.location.href = 'https://dudeworth.com/index.html';
+                       window.location.href = 'https://dudeworth.com';
                      }, 5000);
                    </script>
                    </body></html>`,
