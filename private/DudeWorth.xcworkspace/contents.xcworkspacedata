@@ -4,6 +4,290 @@
    <Group
       location = "group:.."
       name = "..">
+      <FileRef
+         location = "group:faq.json">
+      </FileRef>
+      <FileRef
+         location = "group:index.html">
+      </FileRef>
+      <FileRef
+         location = "group:roadmap.json">
+      </FileRef>
+      <FileRef
+         location = "group:netlify.toml">
+      </FileRef>
+      <FileRef
+         location = "group:services.json">
+      </FileRef>
+      <FileRef
+         location = "group:styles.css">
+      </FileRef>
+      <Group
+         location = "group:images"
+         name = "images">
+         <FileRef
+            location = "group:logo_white.svg">
+         </FileRef>
+         <FileRef
+            location = "group:logo.svg">
+         </FileRef>
+         <FileRef
+            location = "group:favicon.svg">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:node_modules"
+         name = "node_modules">
+         <Group
+            location = "group:dotenv"
+            name = "dotenv">
+            <FileRef
+               location = "group:LICENSE">
+            </FileRef>
+            <FileRef
+               location = "group:CHANGELOG.md">
+            </FileRef>
+            <FileRef
+               location = "group:config.d.ts">
+            </FileRef>
+            <FileRef
+               location = "group:config.js">
+            </FileRef>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+            <FileRef
+               location = "group:package.json">
+            </FileRef>
+            <Group
+               location = "group:lib"
+               name = "lib">
+               <FileRef
+                  location = "group:main.d.ts">
+               </FileRef>
+               <FileRef
+                  location = "group:env-options.js">
+               </FileRef>
+               <FileRef
+                  location = "group:main.js">
+               </FileRef>
+               <FileRef
+                  location = "group:cli-options.js">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:README-es.md">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:nodemailer"
+            name = "nodemailer">
+            <FileRef
+               location = "group:CODE_OF_CONDUCT.md">
+            </FileRef>
+            <FileRef
+               location = "group:LICENSE">
+            </FileRef>
+            <FileRef
+               location = "group:CHANGELOG.md">
+            </FileRef>
+            <FileRef
+               location = "group:README.md">
+            </FileRef>
+            <FileRef
+               location = "group:SECURITY.txt">
+            </FileRef>
+            <FileRef
+               location = "group:package.json">
+            </FileRef>
+            <Group
+               location = "group:lib"
+               name = "lib">
+               <Group
+                  location = "group:smtp-pool"
+                  name = "smtp-pool">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:pool-resource.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:addressparser"
+                  name = "addressparser">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:punycode"
+                  name = "punycode">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:mime-node"
+                  name = "mime-node">
+                  <FileRef
+                     location = "group:last-newline.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:le-unix.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:le-windows.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:ses-transport"
+                  name = "ses-transport">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:mail-composer"
+                  name = "mail-composer">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:base64"
+                  name = "base64">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:mailer"
+                  name = "mailer">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:mail-message.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:shared"
+                  name = "shared">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:nodemailer.js">
+               </FileRef>
+               <Group
+                  location = "group:json-transport"
+                  name = "json-transport">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:stream-transport"
+                  name = "stream-transport">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:fetch"
+                  name = "fetch">
+                  <FileRef
+                     location = "group:cookies.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:well-known"
+                  name = "well-known">
+                  <FileRef
+                     location = "group:services.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:xoauth2"
+                  name = "xoauth2">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:sendmail-transport"
+                  name = "sendmail-transport">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:smtp-connection"
+                  name = "smtp-connection">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:http-proxy-client.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:data-stream.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:qp"
+                  name = "qp">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:dkim"
+                  name = "dkim">
+                  <FileRef
+                     location = "group:relaxed-body.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:sign.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:message-parser.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:mime-funcs"
+                  name = "mime-funcs">
+                  <FileRef
+                     location = "group:mime-types.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:smtp-transport"
+                  name = "smtp-transport">
+                  <FileRef
+                     location = "group:index.js">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+      </Group>
       <Group
          location = "group:admin"
          name = "admin">
@@ -19,68 +303,15 @@
             </FileRef>
          </Group>
       </Group>
-      <Group
-         location = "group:public"
-         name = "public">
-         <FileRef
-            location = "group:faq.json">
-         </FileRef>
-         <FileRef
-            location = "group:index.html">
-         </FileRef>
-         <FileRef
-            location = "group:roadmap.json">
-         </FileRef>
-         <FileRef
-            location = "group:services.json">
-         </FileRef>
-         <FileRef
-            location = "group:styles.css">
-         </FileRef>
-         <Group
-            location = "group:images"
-            name = "images">
-            <FileRef
-               location = "group:svg.html">
-            </FileRef>
-            <FileRef
-               location = "group:logo.png">
-            </FileRef>
-            <FileRef
-               location = "group:logo_white.svg">
-            </FileRef>
-            <FileRef
-               location = "group:logo.svg">
-            </FileRef>
-            <FileRef
-               location = "group:favicon.svg">
-            </FileRef>
-         </Group>
-         <FileRef
-            location = "group:netlify.toml.txt">
-         </FileRef>
-         <FileRef
-            location = "group:script.js">
-         </FileRef>
-         <FileRef
-            location = "group:terms.json">
-         </FileRef>
-         <FileRef
-            location = "group:sitemap.xml">
-         </FileRef>
-         <FileRef
-            location = "group:contact.json">
-         </FileRef>
-         <FileRef
-            location = "group:about.json">
-         </FileRef>
-         <FileRef
-            location = "group:robot.txt">
-         </FileRef>
-         <FileRef
-            location = "group:hero.json">
-         </FileRef>
-      </Group>
+      <FileRef
+         location = "group:script.js">
+      </FileRef>
+      <FileRef
+         location = "group:package-lock.json">
+      </FileRef>
+      <FileRef
+         location = "group:package.json">
+      </FileRef>
       <Group
          location = "group:private"
          name = "private">
@@ -88,5 +319,23 @@
             location = "group:DudeWorth.xcworkspace">
          </FileRef>
       </Group>
+      <FileRef
+         location = "group:terms.json">
+      </FileRef>
+      <FileRef
+         location = "group:sitemap.xml">
+      </FileRef>
+      <FileRef
+         location = "group:contact.json">
+      </FileRef>
+      <FileRef
+         location = "group:about.json">
+      </FileRef>
+      <FileRef
+         location = "group:robot.txt">
+      </FileRef>
+      <FileRef
+         location = "group:hero.json">
+      </FileRef>
    </Group>
 </Workspace>

@@ -63,7 +63,7 @@
             <h2 id="contact-title"></h2>
             <p id="contact-body"></p>
             <button id="toggle-contact" class="cta-button">Show Contact Form</button>
-            <form id="contact-form" class="hidden">
+            <form id="contact-form" class="hidden" action="/.netlify/functions/send-email" method="POST">
                 <div class="form-group">
                     <label for="firstName">First Name</label>
                     <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
