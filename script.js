@@ -136,18 +136,11 @@ function updateTermsSection(data) {
 function setupToggleButtons() {
     console.log("Setting up toggle buttons...");
     const faqButton = document.getElementById('toggle-faq');
-    const contactButton = document.getElementById('toggle-contact');
     const faqContent = document.getElementById('faq-content');
-    const contactForm = document.getElementById('contact-form');
 
     faqButton.addEventListener('click', () => {
         faqContent.classList.toggle('hidden');
         faqButton.textContent = faqContent.classList.contains('hidden') ? 'Show Q&A' : 'Hide Q&A';
-    });
-
-    contactButton.addEventListener('click', () => {
-        contactForm.classList.toggle('hidden');
-        contactButton.textContent = contactForm.classList.contains('hidden') ? 'Show Contact Form' : 'Hide Contact Form';
     });
 
     document.addEventListener('click', function(event) {
