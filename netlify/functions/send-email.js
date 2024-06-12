@@ -27,6 +27,15 @@ exports.handler = async (event, context) => {
         };
     }
 
+    // Honeypot field check
+    if (data.address) {
+        console.log('Honeypot field filled. Likely spam.');
+        return {
+            statusCode: 400,
+            body: JSON.stringify({ error: 'Spam detected' }),
+        };
+    }
+
     const { firstName, lastName, email, budget, timeframe, message } = data;
 
     console.log('Parsed form data:', { firstName, lastName, email, budget, timeframe, message });
@@ -50,15 +59,10 @@ An intelligent entity (a potential client) has interfaced with our system and su
 ---
 
 **First Name:** ${firstName}
-
 **Last Name:** ${lastName}
-
 **Email:** ${email}
-
 **Budget:** ${budget}
-
 **Time Frame:** ${timeframe}
-
 **Message:**
 ${message}
 
