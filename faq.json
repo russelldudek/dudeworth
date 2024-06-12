@@ -193,19 +193,19 @@
             "answer": "Superintelligence refers to an AI that surpasses human intelligence in all aspects, including creativity, problem-solving, and emotional intelligence. While it is a topic of debate among experts, it remains a theoretical concept and is not currently achievable with existing technology."
         },
         {
-            "question": "39. Is AI good or bad for society?",
+            "question": "39. What is physical AI and how is it applied?",
+            "color": "#FF00FF",
+            "answer": "Physical AI refers to the integration of AI with physical systems and robotics to perform tasks that require interaction with the physical world. It is applied in areas like autonomous vehicles, drones, smart manufacturing, and service robots."
+        },
+        {
+            "question": "40. Is AI good or bad for society?",
             "color": "#FF1493",
             "answer": "AI has the potential to bring significant benefits to society, such as improving healthcare, increasing efficiency, and solving complex problems. However, it also poses challenges, including ethical concerns, job displacement, and privacy issues. The impact of AI on society depends on how it is developed and implemented."
         },
         {
-            "question": "40. Is AI conscious?",
-            "color": "#FF00FF",
-            "answer": "Current AI systems are not conscious. They do not possess self-awareness, emotions, or subjective experiences. AI operates based on algorithms and data, without understanding or awareness of the tasks it performs."
-        },
-        {
-            "question": "41. What is physical AI and how is it applied?",
+            "question": "41. Is AI conscious?",
             "color": "#FF073A",
-            "answer": "Physical AI refers to the integration of AI with physical systems and robotics to perform tasks that require interaction with the physical world. It is applied in areas like autonomous vehicles, drones, smart manufacturing, and service robots."
+            "answer": "Current AI systems are not conscious. They do not possess self-awareness, emotions, or subjective experiences. AI operates based on algorithms and data, without understanding or awareness of the tasks it performs."
         },
         {
             "question": "42. What is the meaning of life according to AI?",
