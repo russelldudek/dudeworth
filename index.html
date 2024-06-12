@@ -60,25 +60,25 @@
     </div>
     <div class="section-container">
         <section id="cta">
-            <h2 id="contact-title"></h2>
-            <p id="contact-body"></p>
-            <button id="toggle-contact" class="cta-button">Show Contact Form</button>
-            <form id="contact-form" class="hidden" action="https://dudeworth.com/.netlify/functions/send-email" method="POST">
+            <h2 id="contact-title">Ready to embark on a journey of transformation and success?</h2>
+            <button class="cta-button scroll-to" data-target="#contact-form">Contact Us</button>
+            <p id="contact-body">Contact us today to learn more about our services and discover how DudeWorth can help you re:Think your business strategies and achieve game-changing results.</p>
+            <form id="contact-form" action="https://dudeworth.com/.netlify/functions/send-email" method="POST">
                 <div class="form-group" style="display:none;">
                     <label for="address">Address</label>
-                    <input type="text" id="address" name="address" placeholder="Address">
+                    <input type="text" id="address" name="address" placeholder="Leave this field empty">
                 </div>
                 <div class="form-group">
                     <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" placeholder="" required>
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
                 </div>
                 <div class="form-group">
                     <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" placeholder="" required>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" placeholder="" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
                     <label for="budget">Select Your Budget</label>
@@ -137,6 +137,29 @@
             <button id="close-terms" class="close-terms-button">Close</button>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupSmoothScroll();
+        });
+
+        function setupSmoothScroll() {
+            document.querySelectorAll('.scroll-to').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href') ? this.getAttribute('href').substring(1) : this.dataset.target;
+                    const targetElement = document.querySelector(targetId);
+                    const headerOffset = document.querySelector('header').offsetHeight + 80;
+
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+    </script>
 </body>
 </html>
 
