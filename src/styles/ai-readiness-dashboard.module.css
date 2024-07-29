@@ -1,0 +1,440 @@
+.dashboardContainer {
+    background-color: var(--background-color);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 5px 5px 10px var(--shadow-dark), 
+                -5px -5px 10px var(--shadow-light);
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.calculator {
+    margin-bottom: 30px;
+}
+
+.categoryScore {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.categoryScore label {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.categoryScore input[type="text"] {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    background-color: var(--background-color);
+    border: none;
+    border-bottom: 1px solid var(--accent-color-1);
+    color: var(--text-color);
+    padding: 5px;
+}
+
+.categoryScore input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 12px;
+    border-radius: 6px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    background-color: var(--background-color);
+    box-shadow: inset 2px 2px 4px var(--shadow-dark), 
+                inset -2px -2px 4px var(--shadow-light);
+    margin-bottom: 10px;
+}
+
+.categoryScore input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent-color-1);
+    cursor: pointer;
+    box-shadow: 2px 2px 4px var(--shadow-dark), 
+                -2px -2px 4px var(--shadow-light);
+}
+
+.categoryScore input[type="range"]::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent-color-1);
+    cursor: pointer;
+    box-shadow: 2px 2px 4px var(--shadow-dark), 
+                -2px -2px 4px var(--shadow-light);
+}
+
+.categoryScore span {
+    align-self: flex-end;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.milestone {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--accent-color-2);
+    height: 20px;
+    margin-top: 5px;
+}
+
+.totalScore {
+    margin-top: 30px;
+    font-size: 1.4em;
+    text-align: right;
+    color: var(--accent-color-1);
+}
+
+.readinessCardsContainer {
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px var(--shadow-dark), 
+                -5px -5px 10px var(--shadow-light);
+}
+
+.listsContainer {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.list {
+    min-width: 300px;
+    background-color: var(--background-color);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 3px 3px 6px var(--shadow-dark), 
+                -3px -3px 6px var(--shadow-light);
+}
+
+.list h3 {
+    margin-bottom: 10px;
+    color: var(--accent-color-1);
+}
+
+.card {
+    background-color: var(--background-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 4px var(--shadow-dark), 
+                -2px -2px 4px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.card.dragging {
+    box-shadow: 5px 5px 10px var(--shadow-dark), 
+                -5px -5px 10px var(--shadow-light);
+}
+
+.card.default:not(.expanded) { background-color: var(--background-color); }
+.card.green:not(.expanded) { background-color: var(--accent-color-1); }
+.card.yellow:not(.expanded) { background-color: #D4AC0D; }
+.card.red:not(.expanded) { background-color: #C0392B; }
+
+.cardHeader {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardTitle {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.cardContent {
+    padding: 10px;
+    border-top: 1px solid var(--shadow-dark);
+}
+
+.cardDescription {
+    width: 100%;
+    min-height: 60px;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    resize: vertical;
+}
+
+.taskList {
+    margin-top: 10px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+
+.task span {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.checkbox {
+    margin-right: 5px;
+    cursor: pointer;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--text-color);
+    border-radius: 3px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.checkbox:checked {
+    background-color: var(--accent-color-1);
+    border-color: var(--accent-color-1);
+}
+
+.checkbox:hover {
+    border-color: var(--accent-color-1);
+}
+
+.taskActions {
+    display: flex;
+    align-items: center;
+}
+
+.moveTaskButton {
+    background-color: transparent;
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 0 3px;
+    transition: color 0.3s ease;
+}
+
+.moveTaskButton:hover {
+    color: var(--accent-color-1);
+}
+
+.taskPriorityButton,
+.priorityButton {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 4px var(--shadow-dark),
+                -2px -2px 4px var(--shadow-light);
+}
+
+.taskPriorityButton:hover,
+.priorityButton:hover {
+    box-shadow: inset 1px 1px 2px var(--shadow-dark),
+                inset -1px -1px 2px var(--shadow-light);
+}
+
+.taskPriorityButton.default,
+.priorityButton.default { 
+    background-color: var(--background-color); 
+    border: 2px solid var(--text-color);
+    box-sizing: border-box;
+}
+.taskPriorityButton.green,
+.priorityButton.green { background-color: var(--accent-color-1); }
+.taskPriorityButton.yellow,
+.priorityButton.yellow { background-color: #D4AC0D; }
+.taskPriorityButton.red,
+.priorityButton.red { background-color: #C0392B; }
+
+.deleteTaskButton {
+    background-color: transparent;
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 0 5px;
+    transition: color 0.3s ease;
+}
+
+.deleteTaskButton:hover {
+    color: #C0392B;
+}
+
+.cardActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.actionButton, .moveButton, .addCardButton, .addTask button {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 6px var(--shadow-dark),
+                -3px -3px 6px var(--shadow-light);
+}
+
+.actionButton:hover, .moveButton:hover, .addCardButton:hover, .addTask button:hover {
+    color: var(--accent-color-1);
+    box-shadow: inset 2px 2px 4px var(--shadow-dark),
+                inset -2px -2px 4px var(--shadow-light);
+}
+
+.cardActions .actionButton.deleteButton:hover {
+    color: #C0392B !important;
+}
+
+.priorityButton {
+    width: 20px;
+    height: 20px;
+}
+
+.addCardButton {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.moveActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.addTask {
+    display: flex;
+    margin-top: 10px;
+}
+
+.addTask input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid var(--shadow-dark);
+    border-radius: 3px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.cardsContainer {
+    background-color: var(--background-color);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 5px 5px 10px var(--shadow-dark), 
+                -5px -5px 10px var(--shadow-light);
+    margin-top: 40px;
+}
+
+.tabsContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px 10px 0 0;
+    padding: 10px 10px 0;
+    box-shadow: 3px 3px 6px var(--shadow-dark), 
+                -3px -3px 6px var(--shadow-light);
+}
+
+.tabButton {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 10px 10px 0 0;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.tabButton:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.activeTab {
+    background-color: var(--background-color);
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), 
+                inset -3px -3px 6px var(--shadow-light);
+    color: var(--accent-color-1);
+}
+
+.cardsContent {
+    background-color: var(--background-color);
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), 
+                inset -3px -3px 6px var(--shadow-light);
+}
+
+/* Dark mode specific styles */
+:global(.dark-mode) .addTask input,
+:global(.dark-mode) .cardDescription,
+:global(.dark-mode) .task input[type="text"] {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-color: var(--shadow-light);
+}
+
+:global(.dark-mode) .card.yellow:not(.expanded) { 
+    background-color: #B7950B;
+}
+
+:global(.dark-mode) .card.red:not(.expanded) { 
+    background-color: #922B21;
+}
+
+:global(.dark-mode) .taskPriorityButton.yellow,
+:global(.dark-mode) .priorityButton.yellow { 
+    background-color: #B7950B;
+}
+
+:global(.dark-mode) .taskPriorityButton.red,
+:global(.dark-mode) .priorityButton.red { 
+    background-color: #922B21;
+}
+
+:global(.dark-mode) .deleteTaskButton:hover {
+    color: #E74C3C;
+}
+
+:global(.dark-mode) .cardActions .actionButton.deleteButton:hover {
+    color: #E74C3C !important;
+}
+
+@media (max-width: 768px) {
+    .dashboardContainer,
+    .cardsContainer {
+        padding: 20px;
+    }
+
+    .tabsContainer {
+        flex-wrap: wrap;
+    }
+
+    .tabButton {
+        margin-bottom: 10px;
+    }
+
+    .listsContainer {
+        flex-direction: column;
+    }
+
+    .list {
+        min-width: auto;
+    }
+}
+

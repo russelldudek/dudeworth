@@ -1,0 +1,112 @@
+.hero {
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  border-radius: 30px;
+  background-color: var(--background-color);
+  box-shadow: 10px 10px 20px var(--shadow-dark), 
+              -10px -10px 20px var(--shadow-light);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rethinkContainer {
+  background-color: var(--background-color);
+  padding: 20px 40px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  box-shadow: inset 5px 5px 10px var(--shadow-dark), 
+              inset -5px -5px 10px var(--shadow-light);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rethinkText {
+  margin: 0;
+  font-size: 56px;
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dynamicKeyword {
+  font-size: 42px;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1),
+               -2px -2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.subtitle {
+  font-size: 24px;
+  margin-bottom: 40px;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.ctaButton {
+  background: var(--background-color);
+  border: none;
+  border-radius: 10px;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 5px 5px 10px var(--shadow-dark), 
+              -5px -5px 10px var(--shadow-light);
+}
+
+.ctaButton:hover {
+  color: var(--accent-color-1);
+  box-shadow: inset 5px 5px 10px var(--shadow-dark), 
+              inset -5px -5px 10px var(--shadow-light);
+}
+
+:global(.dark-mode) .hero {
+  background-color: var(--background-color);
+}
+
+:global(.dark-mode) .heroContent {
+  background-color: var(--background-color);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), 
+              -5px -5px 10px rgba(255, 255, 255, 0.1);
+}
+
+:global(.dark-mode) .rethinkContainer {
+  background-color: var(--background-color);
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), 
+              inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+}
+
+:global(.dark-mode) .dynamicKeyword {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+               -2px -2px 4px rgba(255, 255, 255, 0.1);
+}
+
+:global(.dark-mode) .subtitle {
+  color: var(--text-color);
+}
+
+:global(.dark-mode) .ctaButton {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), 
+              -5px -5px 10px rgba(255, 255, 255, 0.1);
+}
+
+:global(.dark-mode) .ctaButton:hover {
+  color: var(--accent-color-1);
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), 
+              inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+}

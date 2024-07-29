@@ -1,0 +1,4 @@
+.dynamicTheme {
+  font-weight: bold;
+  transition: color 0.5s ease;
+}

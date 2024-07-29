@@ -1,0 +1,117 @@
+.csvUploader {
+  background-color: var(--background-color);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px var(--shadow-dark), 
+              -5px -5px 10px var(--shadow-light);
+  margin-bottom: 20px;
+}
+
+.csvUploader h3 {
+  color: var(--accent-color-1);
+  margin-bottom: 15px;
+}
+
+.fileUploadContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.fileSelectButton {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 5px 5px 10px var(--shadow-dark), 
+              -5px -5px 10px var(--shadow-light);
+}
+
+.fileSelectButton:hover {
+  color: var(--accent-color-1);
+  box-shadow: inset 2px 2px 5px var(--shadow-dark), 
+              inset -2px -2px 5px var(--shadow-light);
+}
+
+.fileName {
+  margin-left: 15px;
+  color: var(--text-color);
+}
+
+.csvTextarea {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 15px;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  resize: vertical;
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+              inset -3px -3px 6px var(--shadow-light);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.csvTextarea:focus {
+  outline: none;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark),
+              inset -4px -4px 8px var(--shadow-light);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.uploadButton,
+.downloadButton,
+.importButton {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 5px 5px 10px var(--shadow-dark), 
+              -5px -5px 10px var(--shadow-light);
+  flex: 1;
+  min-width: 150px;
+}
+
+.uploadButton:hover,
+.downloadButton:hover,
+.importButton:hover {
+  color: var(--accent-color-1);
+  box-shadow: inset 2px 2px 5px var(--shadow-dark), 
+              inset -2px -2px 5px var(--shadow-light);
+}
+
+.error {
+  color: #ff4136;
+  margin-top: 10px;
+}
+
+/* Dark mode styles */
+:global(.dark-mode) .csvUploader {
+  background-color: var(--background-color);
+}
+
+:global(.dark-mode) .fileSelectButton,
+:global(.dark-mode) .uploadButton,
+:global(.dark-mode) .downloadButton,
+:global(.dark-mode) .importButton {
+  color: var(--text-color);
+}
+
+:global(.dark-mode) .csvTextarea {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

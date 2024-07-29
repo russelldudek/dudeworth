@@ -1,0 +1,99 @@
+.footer {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 40px 0 20px;
+  box-shadow: 0 -5px 15px var(--shadow-dark);
+  position: relative;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footerLogo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 120px;
+}
+
+.footerNav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerNav a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 4px 8px;
+  transition: color 0.3s ease;
+}
+
+.footerNav a:hover {
+  color: var(--accent-color-1);
+}
+
+.footerDescription {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+}
+
+.calendlyContainer {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.footerBottom {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--shadow-dark);
+}
+
+.copyright {
+  text-align: center;
+  font-size: 14px;
+}
+
+.copyright a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.copyright a:hover {
+  color: var(--accent-color-1);
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerLogo, .footerNav, .footerDescription {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footerDescription {
+    order: 3;
+  }
+}

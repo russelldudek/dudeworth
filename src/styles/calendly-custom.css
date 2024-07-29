@@ -1,0 +1,29 @@
+/* Custom styles for Calendly popup */
+.calendly-popup .calendly-close-overlay {
+    display: none !important; /* Hide the original overlay */
+  }
+  
+  .calendly-popup .calendly-popup-content {
+    position: relative !important; /* Ensure relative positioning for absolute child */
+  }
+  
+  .calendly-popup .calendly-popup-close {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    background-color: #2d3748 !important;
+    color: white !important;
+    border-radius: 50% !important;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+  }
+  
+  .calendly-popup .calendly-popup-close:hover {
+    background-color: #00a86b !important;
+  }

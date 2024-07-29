@@ -1,0 +1,58 @@
+.collapsible {
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: var(--background-color);
+  box-shadow: 5px 5px 10px var(--shadow-dark), 
+              -5px -5px 10px var(--shadow-light);
+}
+
+.toggle {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.toggle:hover, .collapsible.open .toggle {
+  color: white;
+  background-color: var(--hover-color);
+}
+
+.icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.content {
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-top: 1px solid var(--shadow-dark);
+}
+
+.collapsible.open .icon {
+  transform: rotate(180deg);
+}
+
+/* Dark mode styles */
+:global(.dark-mode) .toggle:hover,
+:global(.dark-mode) .collapsible.open .toggle {
+  color: var(--background-color);
+  background-color: var(--hover-color);
+}
+
+:global(.dark-mode) .content {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

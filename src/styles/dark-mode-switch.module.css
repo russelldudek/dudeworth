@@ -1,0 +1,23 @@
+.switch {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+/* Remove the hover effect */
+.switch:hover {
+  background-color: transparent;
+}
+
+:global(.dark-mode) .switch .icon {
+  color: var(--text-color);
+}

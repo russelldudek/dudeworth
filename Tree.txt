@@ -1,0 +1,139 @@
+
+root/
+
+.
+├── .netlify
+├── admin
+├── blog
+├── dist-server
+├── private
+├── public
+├── netlify
+├── node_modules
+├── server
+├── src
+├── .env
+├── .gitignore
+├── CNAME
+├── demo.lock
+├── netlify.toml
+├── package-lock.json
+├── package.json
+├── readme.md
+├── sitemap.xml
+├── robot.txt
+├── webpack.client.config.js
+└── webpack.server.config.js
+
+.netlify/
+
+.
+├── blobs-serve
+├── functions-internal
+└── state.json
+
+
+dist-server/
+
+.
+└── server.js
+
+private/
+
+.
+├── credentials
+│   └── credentials.json
+└── google sdk
+
+public/
+
+.
+├── images
+│   ├── dark-green.svg
+│   ├── dark.svg
+│   ├── favicon-dark.svg
+│   ├── favicon-light.svg
+│   ├── favicon.svg
+│   ├── green.svg
+│   ├── light-green.svg
+│   ├── light.svg
+│   ├── logo.svg
+│   ├── logo_grey.svg
+│   └── logo_white.svg
+├── index.html
+└── manifest.json
+
+netlify/
+
+.
+└── functions
+    └── send-email.js
+
+server/
+
+.
+└── server.js
+
+src/
+
+.
+├── app.js
+├── components
+│   ├── about.js
+│   ├── ai-readiness-calculator.js
+│   ├── ai-readiness-cards.js
+│   ├── ai-tools.js
+│   ├── background-effect.js
+│   ├── collapsible.js
+│   ├── contact.js
+│   ├── csv-uploader.js
+│   ├── dark-mode-switch.js
+│   ├── dynamic-theme.js
+│   ├── faq.js
+│   ├── footer.js
+│   ├── header.js
+│   ├── hero.js
+│   ├── roadmap.js
+│   ├── services.js
+│   └── terms.js
+├── context
+│   └── theme-context.js
+├── data
+│   ├── about-data.js
+│   ├── ai-tools-data.js
+│   ├── contact-data.js
+│   ├── faq-data.js
+│   ├── hero-data.js
+│   ├── roadmap-data.js
+│   ├── services-data.js
+│   └── terms-data.js
+├── index.js
+├── styles
+│   ├── about.module.css
+│   ├── ai-readiness-calculator.module.css
+│   ├── ai-readiness-cards.module.css
+│   ├── ai-tools.module.css
+│   ├── background-effect.module.css
+│   ├── calendly-custom.css
+│   ├── collapsible.module.css
+│   ├── contact.module.css
+│   ├── csv-uploader.module.css
+│   ├── dark-mode-switch.module.css
+│   ├── dynamic-theme.module.css
+│   ├── faq.module.css
+│   ├── footer.module.css
+│   ├── global.css
+│   ├── header.module.css
+│   ├── hero.module.css
+│   ├── roadmap.module.css
+│   ├── services.module.css
+│   └── terms.module.css
+└── utils
+    ├── ai-tools-config.js
+    ├── csv-parser.js
+    ├── firebase-config.js
+    ├── google-sheet-parser.js
+    ├── sanitize-html.js
+    ├── scroll.js
+    └── text-formatting.js
+

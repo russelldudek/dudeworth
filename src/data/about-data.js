@@ -1,0 +1,42 @@
+const boldTerms = [
+    're:Think', 
+    'AI', 
+    'Artificial Intelligence', 
+    'Innovation', 
+    'Growth', 
+    'Resilience',
+    'smart assistants',
+    'autonomous vehicles',
+    'cutting-edge',
+    'AI automation',
+    'digital revolution'
+  ];
+  
+  const formatText = (text, terms) => {
+    let formattedText = text;
+    terms.forEach(term => {
+      const regex = new RegExp(`\\b${term}\\b`, 'gi');
+      formattedText = formattedText.replace(regex, `<strong>${term}</strong>`);
+    });
+    return formattedText;
+  };
+  
+  export const aboutData = {
+    introduction: formatText("In the not-so-distant past, AI was a fantastical dream, something that belonged to the realms of science fiction. Yet, today, AI has leaped off the pages of sci-fi novels and into the very fabric of our everyday lives. From smart assistants in our homes to autonomous vehicles on our roads, AI is transforming the world at a breakneck pace. Businesses of all sizes are confronted with the exhilarating yet daunting challenge of harnessing this incredible power. The question isn't if you should embrace AI, but how swiftly you can adapt to stay ahead. This is where your journey with DudeWorth begins.", boldTerms),
+    sections: [
+      {
+        title: "Our Commitment to Your Success",
+        color: "#7FFFD4",
+        content: formatText("Our mission is to empower businesses to achieve extraordinary levels of performance and profitability through innovative AI automation. We are committed to delivering solutions that are not only cutting-edge but also practical and scalable, ensuring that every client realizes the true worth of their investment in AI.", boldTerms)
+      },
+      {
+        title: "Pioneering a New Era of Innovation",
+        color: "#00FFFF",
+        content: formatText("We envision a world where businesses, regardless of size, can seamlessly integrate AI into their operations, unlocking new opportunities and driving sustainable growth. At DudeWorth, we are dedicated to leading from the pole position in AI automation, continually pushing the boundaries of what's possible and defining next-level possibilities for our esteemed clients.", boldTerms)
+      }
+    ],
+    callToAction: {
+      title: "Join Us on the Path to Excellence",
+      body: formatText("AI is no longer a distant dream – it is here, reshaping industries and revolutionizing the way we do business. The future is now, and the time to act is today. Don't be left behind in the digital revolution. Ready to embark on a journey of transformation and success? Contact us today to learn more about our services and discover how DudeWorth can help you re:Think your business strategies and achieve game-changing results.", boldTerms)
+    }
+  };

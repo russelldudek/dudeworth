@@ -1,0 +1,139 @@
+.contact {
+  padding: 60px 0;
+  background-color: var(--background-color);
+}
+
+.contactForm {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.formGroup input,
+.formGroup textarea,
+.customSelect {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+              inset -3px -3px 6px var(--shadow-light);
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #a0aec0;
+}
+
+.customSelect {
+  position: relative;
+  cursor: pointer;
+}
+
+.selectedOption {
+  padding-right: 20px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1em;
+}
+
+.selectedOption.placeholder {
+  color: #a0aec0;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  box-shadow: 0 5px 10px var(--shadow-dark);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option:hover {
+  background-color: var(--accent-color-1);
+  color: var(--background-color);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.buttonContainer button {
+  background: var(--background-color);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 5px 5px 10px var(--shadow-dark), 
+              -5px -5px 10px var(--shadow-light);
+}
+
+.buttonContainer button:hover {
+  color: var(--accent-color-1);
+  box-shadow: inset 5px 5px 10px var(--shadow-dark), 
+              inset -5px -5px 10px var(--shadow-light);
+}
+
+/* Dark mode specific styles */
+:global(.dark-mode) .formGroup label,
+:global(.dark-mode) .formGroup input,
+:global(.dark-mode) .formGroup textarea,
+:global(.dark-mode) .customSelect,
+:global(.dark-mode) .options {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+:global(.dark-mode) .formGroup input::placeholder,
+:global(.dark-mode) .formGroup textarea::placeholder,
+:global(.dark-mode) .selectedOption.placeholder {
+  color: #718096;
+}
+
+:global(.dark-mode) .selectedOption {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f7fafc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+:global(.dark-mode) .option:hover {
+  background-color: var(--accent-color-1);
+  color: var(--background-color);
+}
+
+:global(.dark-mode) .buttonContainer button {
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+:global(.dark-mode) .buttonContainer button:hover {
+  color: var(--accent-color-1);
+}
