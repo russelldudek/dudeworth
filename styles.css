@@ -56,6 +56,15 @@ body.is-terms-open {
   overflow: hidden;
 }
 
+body.is-overlay-locked {
+  position: fixed;
+  right: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  touch-action: none;
+}
+
 body.is-deep-dive-open .site-shell,
 body.is-contact-open .site-shell,
 body.is-ack-open .site-shell,

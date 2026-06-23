@@ -331,18 +331,49 @@ const getDiveItem = (storyboard, group, index) => {
   return { item: storyboard.services.items[index], kicker: "Where Intelligence Becomes Worth" };
 };
 
+let lockedScrollY = 0;
+
+const overlaySelectors = [
+  ["[data-deep-dive]", "is-deep-dive-open"],
+  ["[data-contact-modal]", "is-contact-open"],
+  ["[data-ack-modal]", "is-ack-open"],
+  ["[data-terms-modal]", "is-terms-open"],
+];
+
+const lockPageScroll = () => {
+  if (document.body.classList.contains("is-overlay-locked")) return;
+  lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+  document.body.style.top = `-${lockedScrollY}px`;
+  document.body.classList.add("is-overlay-locked");
+};
+
+const unlockPageScroll = () => {
+  if (overlaySelectors.some(([selector]) => !document.querySelector(selector)?.hidden)) return;
+  const scrollY = lockedScrollY;
+  document.body.classList.remove("is-overlay-locked");
+  document.body.style.top = "";
+  window.scrollTo(0, scrollY);
+  requestAnimationFrame(() => window.scrollTo(0, scrollY));
+  window.setTimeout(() => window.scrollTo(0, scrollY), 80);
+};
+
+const restoreTriggerFocus = (element) => {
+  if (!element) return;
+  try {
+    element.focus({ preventScroll: true });
+  } catch (error) {
+    element.focus();
+  }
+};
+
 const closeOpenOverlays = (activeModal) => {
-  [
-    ["[data-deep-dive]", "is-deep-dive-open"],
-    ["[data-contact-modal]", "is-contact-open"],
-    ["[data-ack-modal]", "is-ack-open"],
-    ["[data-terms-modal]", "is-terms-open"],
-  ].forEach(([selector, bodyClass]) => {
+  overlaySelectors.forEach(([selector, bodyClass]) => {
     const modal = document.querySelector(selector);
     if (!modal || modal === activeModal) return;
     modal.hidden = true;
     document.body.classList.remove(bodyClass);
   });
+  unlockPageScroll();
 };
 
 const friendlyFirstName = (name = "") => {
@@ -361,7 +392,8 @@ const wireAcknowledgementModal = () => {
   const close = () => {
     modal.hidden = true;
     document.body.classList.remove("is-ack-open");
-    lastTrigger?.focus();
+    unlockPageScroll();
+    restoreTriggerFocus(lastTrigger);
     lastTrigger = null;
   };
 
@@ -370,6 +402,7 @@ const wireAcknowledgementModal = () => {
     lastTrigger = trigger || null;
     nameTarget.textContent = friendlyFirstName(name);
     modal.hidden = false;
+    lockPageScroll();
     document.body.classList.add("is-ack-open");
     panel.focus();
   };
@@ -399,6 +432,7 @@ const wireDeepDives = (storyboard) => {
   const close = () => {
     modal.hidden = true;
     document.body.classList.remove("is-deep-dive-open");
+    unlockPageScroll();
     lastTrigger?.blur();
     lastTrigger = null;
   };
@@ -423,6 +457,7 @@ const wireDeepDives = (storyboard) => {
     cta.dataset.hoverLabel = "It’s Worth It";
     cta.setAttribute("aria-label", ctaLabel);
     modal.hidden = false;
+    lockPageScroll();
     document.body.classList.add("is-deep-dive-open");
     panel.focus();
   };
@@ -501,8 +536,9 @@ const wireContactModal = () => {
   const close = ({ restoreFocus = true } = {}) => {
     modal.hidden = true;
     document.body.classList.remove("is-contact-open");
+    unlockPageScroll();
     setStatus("");
-    if (restoreFocus) lastTrigger?.focus();
+    if (restoreFocus) restoreTriggerFocus(lastTrigger);
   };
 
   const open = (requestedSubject, trigger) => {
@@ -517,6 +553,7 @@ const wireContactModal = () => {
     resetCaptcha();
     setStatus("");
     modal.hidden = false;
+    lockPageScroll();
     document.body.classList.add("is-contact-open");
     panel.focus();
   };
@@ -582,13 +619,15 @@ const wireTermsModal = () => {
   const close = () => {
     modal.hidden = true;
     document.body.classList.remove("is-terms-open");
-    lastTrigger?.focus();
+    unlockPageScroll();
+    restoreTriggerFocus(lastTrigger);
   };
 
   const open = (trigger) => {
     closeOpenOverlays(modal);
     lastTrigger = trigger || null;
     modal.hidden = false;
+    lockPageScroll();
     document.body.classList.add("is-terms-open");
     panel.focus();
   };
