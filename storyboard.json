@@ -1,0 +1,218 @@
+{
+  "brand": {
+    "name": "DudeWorth",
+    "descriptor": "HI+AI Operating Advisory"
+  },
+  "hero": {
+    "thesis": "Human intelligence plus artificial intelligence, aligned to create greater worth.",
+    "headline": "Make Work Worth Doing",
+    "subcopy": "DudeWorth helps leaders strengthen the people, workflows, and decisions that move the business forward through fractional leadership, expert advisory, hiring support, and practical AI upskilling.",
+    "definition": "It is not about replacing people or outsourcing judgment. It is about aligning human intelligence with artificial intelligence so teams can apply what they know faster, share it more clearly, and scale the work that creates worth.",
+    "brandLine": "Fractional leadership | Expert advisory | Hiring support | Workflow upskilling",
+    "ctas": [
+      {
+        "label": "Let’s Talk. It’s Worth It.",
+        "href": "mailto:HI@dudeworth.com?subject=Let%E2%80%99s%20Talk.%20It%E2%80%99s%20Worth%20It.",
+        "style": "primary"
+      }
+    ]
+  },
+  "pressure": {
+    "title": "What makes work worthy?",
+    "body": "Leaders are not just buying AI or hiring help. They are trying to reduce confusion, raise capability, and help people make better decisions with less drag.",
+    "items": [
+      {
+        "title": "Worthy of your team's attention.",
+        "body": "The work should matter enough that people understand why it deserves focus.",
+        "hook": "Focus is expensive. Spend it well.",
+        "deepDive": {
+          "pain": "Teams are already carrying too many priorities, meetings, and half-finished improvements.",
+          "choice": "DudeWorth helps separate useful work from noise so attention goes where it can change decisions.",
+          "outcome": "Together, we can make the next move visible, owned, and worth the team's focus.",
+          "cta": "Find the work worth attention"
+        }
+      },
+      {
+        "title": "Worthy of the customer.",
+        "body": "Better internal work should show up as clearer answers, fewer misses, and more trust.",
+        "hook": "Internal drag becomes customer doubt.",
+        "deepDive": {
+          "pain": "When handoffs are unclear, customers feel the delay before leaders see the root cause.",
+          "choice": "DudeWorth maps the work behind the customer experience and strengthens the places trust breaks.",
+          "outcome": "Together, we can turn cleaner internal work into clearer answers and fewer avoidable misses.",
+          "cta": "Make the work customer-worthy"
+        }
+      },
+      {
+        "title": "Worthy of being automated.",
+        "body": "Only repeatable, useful work should become automation. Bad process should not be made faster.",
+        "hook": "Do not automate confusion.",
+        "deepDive": {
+          "pain": "Automation can make bad process faster, louder, and harder to unwind.",
+          "choice": "DudeWorth tests whether the workflow is clear enough to automate and where human judgment must stay in the loop.",
+          "outcome": "Together, we can automate only the work that earns trust and gives people time back.",
+          "cta": "Test what deserves automation"
+        }
+      },
+      {
+        "title": "Worthy of the next hire.",
+        "body": "Before adding people, clarify what judgment, ownership, and capability the business actually needs.",
+        "hook": "Hiring should solve the right work.",
+        "deepDive": {
+          "pain": "A vague role turns hiring into hope and makes the new person inherit unclear work.",
+          "choice": "DudeWorth clarifies the operating need before the role, contractor, or fractional seat is defined.",
+          "outcome": "Together, we can make the next hire or fractional support worthy of the cost and trust.",
+          "cta": "Clarify the next hire"
+        }
+      }
+    ]
+  },
+  "method": {
+    "title": "The Worth Test",
+    "body": "DudeWorth pressure-tests work before recommending a person, process, dashboard, automation, or AI move.",
+    "steps": [
+      {
+        "title": "Listen",
+        "body": "Is this the real problem?",
+        "hook": "Most projects start one layer too late.",
+        "deepDive": {
+          "pain": "Leaders often get handed symptoms: late answers, tool fatigue, missed handoffs, or hiring pressure.",
+          "choice": "Core keeps the conversation anchored until the real operating question is named.",
+          "outcome": "A cleaner problem statement before money, time, or reputation gets committed.",
+          "cta": "Name the real problem"
+        }
+      },
+      {
+        "title": "Map",
+        "body": "Where does the work lose clarity?",
+        "hook": "The break is usually between people.",
+        "deepDive": {
+          "pain": "Work loses worth when ownership, data, timing, or decision rights disappear between steps.",
+          "choice": "DudeWorth maps the actual handoffs, not the imaginary clean version in a slide.",
+          "outcome": "A shared view of where clarity is leaking and what can be fixed first.",
+          "cta": "Map the clarity leak"
+        }
+      },
+      {
+        "title": "Choose",
+        "body": "Does it need a person, process, dashboard, automation, or AI?",
+        "hook": "The answer is not always a tool.",
+        "deepDive": {
+          "pain": "AI, dashboards, automation, hires, and consultants all fail when chosen before the work is understood.",
+          "choice": "DudeWorth pressure-tests the options against the outcome, risk, adoption, and human judgment required.",
+          "outcome": "A practical recommendation instead of another fashionable initiative.",
+          "cta": "Choose the right move"
+        }
+      },
+      {
+        "title": "Build",
+        "body": "Can the team actually use it?",
+        "hook": "Useful beats impressive.",
+        "deepDive": {
+          "pain": "Good ideas fail when they add steps, confuse owners, or feel like one more thing to manage.",
+          "choice": "DudeWorth builds small enough to be tried and clear enough to be used.",
+          "outcome": "A usable workflow, dashboard, record, or operating habit people can actually adopt.",
+          "cta": "Build what people will use"
+        }
+      },
+      {
+        "title": "Prove",
+        "body": "Did it improve decisions, speed, trust, or capability?",
+        "hook": "Worthy work has evidence.",
+        "deepDive": {
+          "pain": "Without proof, teams keep debating whether the change helped or just looked good.",
+          "choice": "DudexOS goal loops keep the work tied to evidence, next actions, and observable outcomes.",
+          "outcome": "A clear keep, change, or stop decision based on what the work actually improved.",
+          "cta": "Prove the work earned trust"
+        }
+      }
+    ]
+  },
+  "services": {
+    "title": "Where Intelligence Becomes Worth.",
+    "items": [
+      {
+        "title": "Fractional COO / Operating Partner",
+        "hook": "The business is moving. The operating rhythm is not.",
+        "body": "For moments when the business needs experienced operating judgment without waiting for a full-time executive hire.",
+        "bullets": ["operating rhythm", "leadership support", "decision discipline"],
+        "deepDive": {
+          "pain": "Growth creates more handoffs, more decisions, and more places for work to stall.",
+          "choice": "DudeWorth brings operating cadence without making you wait for the perfect executive hire.",
+          "outcome": "Clear priorities, cleaner ownership, and a leadership rhythm people can actually follow.",
+          "cta": "Stabilize the operating rhythm"
+        }
+      },
+      {
+        "title": "Contract or Direct-Hire Support",
+        "hook": "The wrong hire makes the work heavier.",
+        "body": "For teams that need the right person, role clarity, or hiring signal more than another tool.",
+        "bullets": ["role definition", "candidate signal", "operator fit"],
+        "deepDive": {
+          "pain": "Hiring pressure gets expensive when the role is fuzzy or the signal is weak.",
+          "choice": "DudeWorth clarifies the work first, then helps define the person who can carry it.",
+          "outcome": "Better role shape, sharper candidate conversations, and less guesswork around operator fit.",
+          "cta": "Clarify the role before the hire"
+        }
+      },
+      {
+        "title": "Expert Network / SME Advisory",
+        "hook": "You need signal before the meeting ends.",
+        "body": "For buyers who need clear, practical perspective fast from someone who understands operations under pressure.",
+        "bullets": ["plain-language perspective", "market context", "practical risk review"],
+        "deepDive": {
+          "pain": "High-stakes questions do not need buzzwords. They need grounded operating judgment quickly.",
+          "choice": "DudeWorth translates complex operational and AI-adjacent topics into practical buyer signal.",
+          "outcome": "Cleaner questions, sharper risk reads, and perspective that helps the next decision.",
+          "cta": "Get practical operating signal"
+        }
+      },
+      {
+        "title": "HI+AI Workflow Upskilling",
+        "hook": "AI only helps when people trust the work.",
+        "body": "For teams that need to use AI without losing human judgment, accountability, or trust in the work.",
+        "bullets": ["workflow clarity", "dashboard visibility", "AI-enabled learning"],
+        "deepDive": {
+          "pain": "Teams are being told to use AI, but unclear workflows turn new tools into more noise.",
+          "choice": "DudeWorth starts with the human work, then applies AI where it strengthens judgment and visibility.",
+          "outcome": "People learn faster, decisions become easier to explain, and automation earns trust.",
+          "cta": "Upskill the work, not the hype"
+        }
+      }
+    ]
+  },
+  "proof": {
+    "title": "Real-world work. Measurable worth. Delivered.",
+    "body": "DudeWorth is grounded in logistics, manufacturing, customer operations, automation, and leadership under pressure.",
+    "items": [
+      {
+        "value": "Operations",
+        "label": "real work",
+        "body": "Experience where handoffs, ownership, service, and execution had to hold up every day."
+      },
+      {
+        "value": "People",
+        "label": "human intelligence",
+        "body": "The work starts with judgment, capability, communication, and trust before any tool choice."
+      },
+      {
+        "value": "Systems",
+        "label": "practical clarity",
+        "body": "Dashboards, records, automation, and AI are useful only when they make decisions easier."
+      },
+      {
+        "value": "Outcomes",
+        "label": "worthy work",
+        "body": "The standard is simple: less confusion, stronger operators, faster answers, and better decisions."
+      }
+    ]
+  },
+  "internal": {
+    "title": "DudexOS makes agentic intelligence worth trusting.",
+    "body": "DudeWorth uses DudexOS to support agentic work with discipline, evidence, and clear next actions. At the center is Core, a team of specialized, co-working agents that keep goals, context, and proof moving together until the output can be trusted. That discipline matters because worthy outcomes are traceable, useful, and clear enough for people to act on."
+  },
+  "contact": {
+    "title": "Make the next move worthy of your team’s focus.",
+    "body": "We will help you decide whether the next move is leadership, hiring support, expert perspective, workflow cleanup, dashboard visibility, automation, or practical AI upskilling."
+  }
+}
