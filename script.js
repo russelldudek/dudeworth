@@ -601,7 +601,10 @@ const wireContactModal = () => {
       close({ restoreFocus: false });
       acknowledgement.open(submittedName, lastTrigger);
     } catch (error) {
-      setStatus(`${error.message} You can also email HI@dudeworth.com.`, "error");
+      const message = /Worthiness Check/i.test(error.message)
+        ? "Worthiness Check didn’t pass. Please try again."
+        : error.message;
+      setStatus(message, "error");
     } finally {
       submit.disabled = false;
       submit.textContent = "Send to DudeWorth";
