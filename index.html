@@ -104,7 +104,10 @@
     <div class="site-shell">
       <header class="site-header" data-header>
         <a class="brand" href="#top" aria-label="DudeWorth home">
-          <img class="brand-logo" src="assets/dudeworth-mark.png" alt="" aria-hidden="true" />
+          <picture>
+            <source srcset="assets/dudeworth-mark.webp" type="image/webp" />
+            <img class="brand-logo" src="assets/dudeworth-mark.png" width="720" height="380" alt="" aria-hidden="true" />
+          </picture>
           <span>
             <strong>DudeWorth</strong>
             <small>HI+AI Operating Advisory</small>
@@ -117,7 +120,10 @@
         <section class="hero section" id="top" aria-labelledby="hero-title">
           <div class="hero-card reveal">
             <div class="hero-card__brand">
-              <img class="hero-card__logo" src="assets/dudeworth-mark.png" alt="" aria-hidden="true" />
+              <picture>
+                <source srcset="assets/dudeworth-mark.webp" type="image/webp" />
+                <img class="hero-card__logo" src="assets/dudeworth-mark.png" width="720" height="380" alt="" aria-hidden="true" />
+              </picture>
               <span>DudeWorth</span>
             </div>
             <div class="hero-card__rule" aria-hidden="true"></div>
@@ -234,7 +240,10 @@
 
       <footer class="site-footer">
         <div class="footer-brand" aria-label="DudeWorth">
-          <img src="assets/dudeworth-mark.png" alt="" aria-hidden="true" />
+          <picture>
+            <source srcset="assets/dudeworth-mark.webp" type="image/webp" />
+            <img src="assets/dudeworth-mark.png" width="720" height="380" alt="" aria-hidden="true" />
+          </picture>
           <div>
             <p><strong>DudeWorth</strong></p>
             <p>HI + AI Operating Advisory for worthy work.</p>
@@ -294,7 +303,12 @@
               <option>Workflow upskilling</option>
               <option>Automation or dashboard clarity</option>
               <option>General inquiry</option>
+              <option value="Other">Other</option>
             </select>
+          </label>
+          <label class="contact-form__other-subject" data-other-subject hidden>
+            Other subject matter
+            <input name="subjectOther" type="text" data-other-subject-input placeholder="Tell us what this is about" />
           </label>
           <div class="contact-form__grid">
             <label>
@@ -356,6 +370,17 @@
           </div>
           <button class="button primary" type="submit">Send to DudeWorth</button>
         </form>
+      </article>
+    </div>
+    <div class="ack-modal" data-ack-modal hidden>
+      <button class="ack-modal__backdrop" type="button" data-close-ack aria-label="Close thank you message"></button>
+      <article class="ack-modal__panel" role="dialog" aria-modal="true" aria-labelledby="ack-modal-title" tabindex="-1">
+        <p class="section-kicker">Signal received.</p>
+        <h2 id="ack-modal-title">Thank you, <span data-ack-name>friend</span>.</h2>
+        <p class="ack-modal__intro">
+          We’ll take a thoughtful look at what you shared and follow up with a worthy next step.
+        </p>
+        <button class="button primary" type="button" data-close-ack>Back to the site</button>
       </article>
     </div>
     <div class="terms-modal" data-terms-modal hidden>

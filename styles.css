@@ -48,12 +48,17 @@ body.is-contact-open {
   overflow: hidden;
 }
 
+body.is-ack-open {
+  overflow: hidden;
+}
+
 body.is-terms-open {
   overflow: hidden;
 }
 
 body.is-deep-dive-open .site-shell,
 body.is-contact-open .site-shell,
+body.is-ack-open .site-shell,
 body.is-terms-open .site-shell {
   filter: blur(2px);
   transform: scale(0.995);
@@ -841,12 +846,14 @@ h3 {
 
 .deep-dive[hidden],
 .contact-modal[hidden],
+.ack-modal[hidden],
 .terms-modal[hidden] {
   display: none;
 }
 
 .deep-dive,
 .contact-modal,
+.ack-modal,
 .terms-modal {
   position: fixed;
   inset: 0;
@@ -859,6 +866,7 @@ h3 {
 
 .deep-dive__backdrop,
 .contact-modal__backdrop,
+.ack-modal__backdrop,
 .terms-modal__backdrop {
   position: absolute;
   inset: 0;
@@ -876,6 +884,7 @@ h3 {
 
 .deep-dive__panel,
 .contact-modal__panel,
+.ack-modal__panel,
 .terms-modal__panel {
   position: relative;
   z-index: 1;
@@ -901,12 +910,14 @@ h3 {
 }
 
 .contact-modal__panel,
+.ack-modal__panel,
 .terms-modal__panel {
   overflow-y: auto;
 }
 
 .deep-dive:not([hidden]) .deep-dive__panel,
 .contact-modal:not([hidden]) .contact-modal__panel,
+.ack-modal:not([hidden]) .ack-modal__panel,
 .terms-modal:not([hidden]) .terms-modal__panel {
   border-color: var(--teal);
   box-shadow: var(--shadow), var(--trail-glow);
@@ -918,6 +929,11 @@ h3 {
 
 .contact-modal__panel {
   width: min(680px, 100%);
+}
+
+.ack-modal__panel {
+  width: min(560px, 100%);
+  text-align: center;
 }
 
 .deep-dive__close,
@@ -954,6 +970,11 @@ h3 {
   font-size: clamp(2rem, 5vw, 3.25rem);
 }
 
+.ack-modal__panel h2 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+}
+
 .terms-modal__panel {
   width: min(820px, 100%);
 }
@@ -985,10 +1006,15 @@ h3 {
   color: var(--muted);
 }
 
-.contact-modal__intro {
+.contact-modal__intro,
+.ack-modal__intro {
   margin: 0;
   color: var(--muted);
   font-size: 1.05rem;
+}
+
+.ack-modal__panel .button {
+  justify-self: center;
 }
 
 .contact-form {
@@ -1002,6 +1028,10 @@ h3 {
   color: var(--ink);
   font-size: 0.84rem;
   font-weight: 760;
+}
+
+.contact-form__other-subject[hidden] {
+  display: none;
 }
 
 .contact-form input,
@@ -1516,6 +1546,7 @@ h3 {
 
   .deep-dive__panel,
   .contact-modal__panel,
+  .ack-modal__panel,
   .terms-modal__panel {
     border-color: rgba(221, 247, 246, 0.18);
     background:
@@ -1528,6 +1559,7 @@ h3 {
 
   .deep-dive:not([hidden]) .deep-dive__panel,
   .contact-modal:not([hidden]) .contact-modal__panel,
+  .ack-modal:not([hidden]) .ack-modal__panel,
   .terms-modal:not([hidden]) .terms-modal__panel {
     border-color: var(--teal);
     box-shadow: 0 38px 120px rgba(0, 0, 0, 0.58), var(--trail-glow);
@@ -1627,11 +1659,33 @@ h3 {
   .site-header {
     width: min(calc(100% - 20px), var(--max));
     margin-top: 10px;
+    gap: 8px;
+    padding: 8px;
   }
 
-  .brand small,
-  .nav-cta {
+  .brand {
+    min-width: 0;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 30px;
+  }
+
+  .brand strong {
+    font-size: 0.95rem;
+  }
+
+  .brand small {
     display: none;
+  }
+
+  .nav-cta {
+    display: inline-flex;
+    flex: 0 0 auto;
+    min-width: 112px;
+    padding: 10px 12px;
+    font-size: 0.86rem;
   }
 
   .section {
@@ -1783,15 +1837,36 @@ h3 {
   }
 
   .deep-dive,
-  .contact-modal {
-    padding: 14px;
-    align-items: end;
+  .contact-modal,
+  .ack-modal,
+  .terms-modal {
+    align-items: center;
+    padding: calc(14px + env(safe-area-inset-top, 0px)) 14px calc(14px + env(safe-area-inset-bottom, 0px));
   }
 
   .deep-dive__panel,
-  .contact-modal__panel {
-    max-height: calc(100vh - 28px);
+  .contact-modal__panel,
+  .ack-modal__panel,
+  .terms-modal__panel {
+    max-height: calc(100vh - 28px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
     padding: 22px;
+  }
+
+  @supports (height: 100dvh) {
+    .deep-dive__panel,
+    .contact-modal__panel,
+    .ack-modal__panel,
+    .terms-modal__panel {
+      max-height: calc(100dvh - 28px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    }
+  }
+
+  .deep-dive__close,
+  .contact-modal__close,
+  .terms-modal__close {
+    position: sticky;
+    top: 0;
+    z-index: 2;
   }
 
   .deep-dive__grid,

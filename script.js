@@ -335,6 +335,7 @@ const closeOpenOverlays = (activeModal) => {
   [
     ["[data-deep-dive]", "is-deep-dive-open"],
     ["[data-contact-modal]", "is-contact-open"],
+    ["[data-ack-modal]", "is-ack-open"],
     ["[data-terms-modal]", "is-terms-open"],
   ].forEach(([selector, bodyClass]) => {
     const modal = document.querySelector(selector);
@@ -342,6 +343,43 @@ const closeOpenOverlays = (activeModal) => {
     modal.hidden = true;
     document.body.classList.remove(bodyClass);
   });
+};
+
+const friendlyFirstName = (name = "") => {
+  const first = String(name).trim().split(/\s+/)[0] || "friend";
+  return first.replace(/[^\p{L}\p{M}'-]/gu, "") || "friend";
+};
+
+const wireAcknowledgementModal = () => {
+  const modal = document.querySelector("[data-ack-modal]");
+  if (!modal) return { open: () => {} };
+
+  const panel = modal.querySelector(".ack-modal__panel");
+  const nameTarget = modal.querySelector("[data-ack-name]");
+  let lastTrigger = null;
+
+  const close = () => {
+    modal.hidden = true;
+    document.body.classList.remove("is-ack-open");
+    lastTrigger?.focus();
+    lastTrigger = null;
+  };
+
+  const open = (name, trigger) => {
+    closeOpenOverlays(modal);
+    lastTrigger = trigger || null;
+    nameTarget.textContent = friendlyFirstName(name);
+    modal.hidden = false;
+    document.body.classList.add("is-ack-open");
+    panel.focus();
+  };
+
+  modal.querySelectorAll("[data-close-ack]").forEach((button) => button.addEventListener("click", close));
+  document.addEventListener("keydown", (event) => {
+    if (!modal.hidden && event.key === "Escape") close();
+  });
+
+  return { open };
 };
 
 const wireDeepDives = (storyboard) => {
@@ -407,6 +445,7 @@ const contactSubjects = [
   "Workflow upskilling",
   "Automation or dashboard clarity",
   "General inquiry",
+  "Other",
 ];
 
 const normalizeSubject = (subject = "") => {
@@ -428,10 +467,14 @@ const wireContactModal = () => {
   const panel = modal.querySelector(".contact-modal__panel");
   const form = modal.querySelector("[data-contact-form]");
   const subject = modal.querySelector("[data-contact-subject]");
+  const otherSubject = modal.querySelector("[data-other-subject]");
+  const otherSubjectInput = modal.querySelector("[data-other-subject-input]");
   const status = modal.querySelector("[data-contact-status]");
   const captchaQuestion = modal.querySelector("[data-captcha-question]");
   const captchaA = modal.querySelector("[data-captcha-a]");
   const captchaB = modal.querySelector("[data-captcha-b]");
+  const submit = form.querySelector('button[type="submit"]');
+  const acknowledgement = wireAcknowledgementModal();
   let lastTrigger = null;
 
   const resetCaptcha = () => {
@@ -448,11 +491,18 @@ const wireContactModal = () => {
     status.dataset.tone = tone;
   };
 
-  const close = () => {
+  const syncOtherSubject = () => {
+    const isOther = subject.value === "Other";
+    otherSubject.hidden = !isOther;
+    otherSubjectInput.required = isOther;
+    if (!isOther) otherSubjectInput.value = "";
+  };
+
+  const close = ({ restoreFocus = true } = {}) => {
     modal.hidden = true;
     document.body.classList.remove("is-contact-open");
     setStatus("");
-    lastTrigger?.focus();
+    if (restoreFocus) lastTrigger?.focus();
   };
 
   const open = (requestedSubject, trigger) => {
@@ -463,6 +513,7 @@ const wireContactModal = () => {
       subject.add(new Option(normalized, normalized), subject.options.length - 1);
     }
     subject.value = normalized;
+    syncOtherSubject();
     resetCaptcha();
     setStatus("");
     modal.hidden = false;
@@ -482,6 +533,7 @@ const wireContactModal = () => {
   });
 
   modal.querySelectorAll("[data-close-contact]").forEach((button) => button.addEventListener("click", close));
+  subject.addEventListener("change", syncOtherSubject);
   document.addEventListener("keydown", (event) => {
     if (!modal.hidden && event.key === "Escape") close();
   });
@@ -490,7 +542,13 @@ const wireContactModal = () => {
     event.preventDefault();
     setStatus("Sending...");
     const data = Object.fromEntries(new FormData(form).entries());
+    if (data.subject === "Other") {
+      data.subject = data.subjectOther.trim();
+    }
+    delete data.subjectOther;
     data.sourcePage = window.location.href;
+    submit.disabled = true;
+    submit.textContent = "Sending...";
 
     try {
       const response = await fetch("/.netlify/functions/contact", {
@@ -500,11 +558,16 @@ const wireContactModal = () => {
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.error || "The form could not be sent.");
+      const submittedName = data.name;
       form.reset();
       resetCaptcha();
-      setStatus("Received. DudeWorth will review the signal and follow up.", "success");
+      close({ restoreFocus: false });
+      acknowledgement.open(submittedName, lastTrigger);
     } catch (error) {
       setStatus(`${error.message} You can also email HI@dudeworth.com.`, "error");
+    } finally {
+      submit.disabled = false;
+      submit.textContent = "Send to DudeWorth";
     }
   });
 };
