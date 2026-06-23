@@ -1,9 +1,9 @@
 [build]
   publish = "."
   functions = "netlify/functions"
-  command = "" # leave empty if no build command is needed
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

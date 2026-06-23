@@ -1,5 +1,3 @@
-# Local Netlify folder
-.netlify
-node_modules
-# Private files and credentials
-/private
+.DS_Store
+.netlify/
+*.backup-*
